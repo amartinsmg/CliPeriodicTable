@@ -14,7 +14,7 @@ static int callback(void *data, int argc, char **argv, char **azColName)
 int main()
 {
   sqlite3 *db;
-  char *errMsg, *query;
+  char *query, *errMsg = 0;
   int exit, i;
 
   exit = sqlite3_open("periodic.db", &db);
