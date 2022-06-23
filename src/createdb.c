@@ -83,32 +83,31 @@ int main()
       {52, "Tellurium", "Te", "Metalloids", 127.60, 722.7, 1260.95},
       {53, "Iodine", "I", "Halogens", 126.904, 386.7, 457.5},
       {54, "Xenon", "Xe", "Noble gases", 131.293, 161.35, 165.05}};
-
   // sqlite3 *db;
   // char *errMsg, *query;
   // int exit, i;
 
-  // exit = sqlite3_open("periodic.db", &db);
+  // exit = sqlite3_open("./periodic.db", &db);
 
-  // query = "CREATE TABLE periodic_table(" \
-  //   "atomic_number INT PRIMARY KEY NOT NULL," \
-  //   "name TEXT NOT NULL,"
-  //   "symbol TEXT NOT NULL," \
-  //   "classification TEXT NOT NULL," \
-  //   "atomic_mass REAL NOT NULL," \
-  //   "melting_point REAL NOT NULL," \
-  //   "boiding_point REAL NOT NULL)";
+  // query = "CREATE TABLE periodic_table("
+  //         "atomic_number INT PRIMARY KEY NOT NULL,"
+  //         "name TEXT NOT NULL,"
+  //         "symbol TEXT NOT NULL,"
+  //         "classification TEXT NOT NULL,"
+  //         "atomic_mass REAL NOT NULL,"
+  //         "melting_point REAL NOT NULL,"
+  //         "boiding_point REAL NOT NULL)";
 
   // exit = sqlite3_exec(db, query, 0, 0, &errMsg);
 
-  // for (i = 0; i < numberOfElements && !exit; i++)
-  //   exit = insertElement(PeriodicTable[i], db, data, &errMsg);
+  // for (i = 0; i < 54 && !exit; i++)
+  //   exit = insertElement(PeriodicTable[i], db, &errMsg);
 
-  //  if (exit)
-  //  {
+  // if (exit)
+  // {
   //   fprintf(stderr, "%s\n", errMsg);
   //   return 0;
-  //  }
+  // }
 
   // sqlite3_close(db);
 
