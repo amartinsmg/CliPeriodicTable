@@ -61,7 +61,56 @@ int main()
       sprintf(query, "%s WHERE atomic_number = %d", queryBegin, searchInt);
       break;
     case 4:
-      /* code */
+      printf("\n1  - Alkali metals\n"
+             "2  - Alkaline earth metals\n"
+             "3  - Lanthanides\n"
+             "4  - Actinides\n"
+             "5  - Transition metals\n"
+             "6  - Post-transition metals\n"
+             "7  - Metalloids\n"
+             "8  - Nonmetals\n"
+             "9  - Halogens\n"
+             "10 - Noble metals\n\n"
+             "Choose a option: ");
+      scanf("%d", &searchInt);
+      
+      switch (searchInt)
+      {
+      case 1:
+        sprintf(searchChar, "alkali metals");
+        break;
+      case 2:
+        sprintf(searchChar, "alkaline earth metals");
+        break;
+      case 3:
+        sprintf(searchChar, "lanthanides");
+        break;
+      case 4:
+        sprintf(searchChar, "actinides");
+        break;
+      case 5:
+        sprintf(searchChar, "transition metals");
+        break;
+      case 6:
+        sprintf(searchChar, "post-transition metals");
+        break;
+      case 7:
+        sprintf(searchChar, "metalloids");
+        break;
+      case 8:
+        sprintf(searchChar, "nonmetals");
+        break;
+      case 9:
+        sprintf(searchChar, "halogens");
+        break;
+      case 10:
+        sprintf(searchChar, "noble gases");
+        break;
+      default:
+        printf("\nInvalid option");
+        sprintf(searchChar, "NULL");
+      }
+      sprintf(query, "%s WHERE classification LIKE '%s'", queryBegin, searchChar);
       break;
     case 5:
       sprintf(query, "%s", queryBegin);
