@@ -1,4 +1,4 @@
 build
 db
 sqlite*
-*.sh
+compile.sh
