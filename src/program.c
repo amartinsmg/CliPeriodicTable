@@ -1,11 +1,12 @@
 #include <stdio.h>
+#include <string.h>
 #include "sqlite3.h"
 
 static int callback(void *data, int argc, char **argv, char **azColName)
 {
   int i;
   for (i = 0; i < argc; i++)
-    printf("%s: %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+    printf("   %s: %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
   printf("\n");
 
   return 0;
@@ -16,11 +17,11 @@ int main()
   sqlite3 *db;
   char query[300],
       searchChar[30],
-      *queryBegin = "SELECT element_name AS 'Element Name', atomic_number AS 'Atomic Number',"
-                    "element_symbol AS Symbol, classification AS Classification,"
+      *errMsg = 0,
+      *queryBegin = "SELECT element_name AS 'Element Name', element_symbol AS Symbol,"
+                    "atomic_number AS 'Atomic Number', classification AS Classification,"
                     "atomic_mass AS 'Atomic Mass', melting_point AS 'Melting Point (K)',"
-                    "boiding_point AS 'Boinding Point (K)' FROM periodic_table",
-      *errMsg = 0;
+                    "boiding_point AS 'Boinding Point (K)' FROM periodic_table";
   int again = 1, exit, opition, searchInt;
 
   exit = sqlite3_open("db/periodic.db", &db);
@@ -73,47 +74,47 @@ int main()
              "10 - Noble metals\n\n"
              "Choose a option: ");
       scanf("%d", &searchInt);
-      
+
       switch (searchInt)
       {
       case 1:
-        sprintf(searchChar, "alkali metals");
+        strcpy(searchChar, "alkali metals");
         break;
       case 2:
-        sprintf(searchChar, "alkaline earth metals");
+        strcpy(searchChar, "alkaline earth metals");
         break;
       case 3:
-        sprintf(searchChar, "lanthanides");
+        strcpy(searchChar, "lanthanides");
         break;
       case 4:
-        sprintf(searchChar, "actinides");
+        strcpy(searchChar, "actinides");
         break;
       case 5:
-        sprintf(searchChar, "transition metals");
+        strcpy(searchChar, "transition metals");
         break;
       case 6:
-        sprintf(searchChar, "post-transition metals");
+        strcpy(searchChar, "post-transition metals");
         break;
       case 7:
-        sprintf(searchChar, "metalloids");
+        strcpy(searchChar, "metalloids");
         break;
       case 8:
-        sprintf(searchChar, "nonmetals");
+        strcpy(searchChar, "nonmetals");
         break;
       case 9:
-        sprintf(searchChar, "halogens");
+        strcpy(searchChar, "halogens");
         break;
       case 10:
-        sprintf(searchChar, "noble gases");
+        strcpy(searchChar, "noble gases");
         break;
       default:
         printf("\nInvalid option");
-        sprintf(searchChar, "NULL");
+        strcpy(searchChar, "NULL");
       }
       sprintf(query, "%s WHERE classification LIKE '%s'", queryBegin, searchChar);
       break;
     case 5:
-      sprintf(query, "%s", queryBegin);
+      strcpy(query, queryBegin);
       break;
     case 6:
       return 0;
