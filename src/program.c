@@ -6,7 +6,7 @@ static int callback(void *data, int argc, char **argv, char **azColName)
 {
   int i;
   for (i = 0; i < argc; i++)
-    printf("   %s: %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+    printf("  %s: %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
   printf("\n");
 
   return 0;
@@ -15,13 +15,12 @@ static int callback(void *data, int argc, char **argv, char **azColName)
 int main()
 {
   sqlite3 *db;
-  char query[300],
+  char query[350],
       searchChar[30],
       *errMsg = 0,
-      *queryBegin = "SELECT element_name AS 'Element Name', element_symbol AS Symbol,"
-                    "atomic_number AS 'Atomic Number', classification AS Classification,"
-                    "atomic_mass AS 'Atomic Mass', melting_point AS 'Melting Point (K)',"
-                    "boiding_point AS 'Boinding Point (K)' FROM periodic_table";
+      *queryBegin = "SELECT element_name AS 'Element Name', element_symbol AS Symbol, atomic_number AS 'Atomic Number',"
+                    "classification AS Classification, atomic_mass AS 'Atomic Mass (g/mol)', density AS 'Density (g/cm^3)',"
+                    "melting_point AS 'Melting Point (K)', boiding_point AS 'Boinding Point (K)' FROM periodic_table";
   int again = 1, exit, opition, searchInt;
 
   exit = sqlite3_open("db/periodic.db", &db);
@@ -64,7 +63,7 @@ int main()
     case 4:
       printf("\n1  - Alkali metals\n"
              "2  - Alkaline earth metals\n"
-             "3  - Lanthanides\n"
+             "3  - Lanthanoids\n"
              "4  - Actinides\n"
              "5  - Transition metals\n"
              "6  - Post-transition metals\n"
@@ -84,7 +83,7 @@ int main()
         strcpy(searchChar, "alkaline earth metals");
         break;
       case 3:
-        strcpy(searchChar, "lanthanides");
+        strcpy(searchChar, "lanthanoids");
         break;
       case 4:
         strcpy(searchChar, "actinides");
