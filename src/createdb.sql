@@ -40,7 +40,8 @@ INSERT INTO periodic_table VALUES (29, 'Copper', 'Cu', 'Transition metals', 63.5
 INSERT INTO periodic_table VALUES (30, 'Zinc', 'Zn', 'Transition metals', 65.38, 7.133, 692.65, 1179.15);
 INSERT INTO periodic_table VALUES (31, 'Gallium', 'Ga', 'Transition metals', 69.723, 5.91, 302.95, 2476.15);
 INSERT INTO periodic_table VALUES (32, 'Germanium', 'Ge', 'Metalloids', 72.64, 5.323, 1210.65, 3106.15);
-INSERT INTO periodic_table(atomic_number, element_name, element_symbol, classification, atomic_mass, density, boiding_point) VALUES (33, 'Arsenic', 'As', 'Metalloids', 74.9216, 5.72, 886.15);
+INSERT INTO periodic_table(atomic_number, element_name, element_symbol, classification, atomic_mass,
+density, boiding_point) VALUES (33, 'Arsenic', 'As', 'Metalloids', 74.9216, 5.72, 886.15);
 INSERT INTO periodic_table VALUES (34, 'Selenium', 'Se', 'Nonmetals', 78.96, 4.79, 490.15, 957.95);
 INSERT INTO periodic_table VALUES (35, 'Bromine', 'Br', 'Halogens', 79.904, 3.14, 265.9, 331.95);
 INSERT INTO periodic_table VALUES (36, 'Krypton', 'Kr', 'Noble metals', 83.798, 0.003749, 115.78, 119.75);
@@ -89,11 +90,11 @@ INSERT INTO periodic_table VALUES (78, 'Platinum', 'Pl', 'Transition metals', 19
 INSERT INTO periodic_table VALUES (79, 'Gold', 'Au', 'Transition metals', 196.966, 19.3, 1337.15, 2973.15);
 INSERT INTO periodic_table VALUES (80, 'Mercury', 'Hg', 'Transition metals', 200.59, 13.55, 234.15, 629.85);
 INSERT INTO periodic_table VALUES (81, 'Thalium', 'Tl', 'Post-transition metals', 204.383, 11.85, 576.75, 1746.15);
--- INSERT INTO periodic_table VALUES (82, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (83, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (84, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (85, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (86, '', '', '', , , , );
+INSERT INTO periodic_table VALUES (82, 'Lead', 'Pb', 'Post-transition metals', 207.2, 11.34, 600.55, 2022.15);
+INSERT INTO periodic_table VALUES (83, 'Bismuth', 'Bi', 'Post-transition metals', 208.9804, 9.8, 544.55, 1833.15);
+INSERT INTO periodic_table VALUES (84, 'Polonium', 'Po', 'Metalloids', 208.9824, 9.2, 527.15, 1235.15);
+INSERT INTO periodic_table VALUES (85, 'Astatine', 'At', 'Halogens', 209.9871, 6.4, 503.15, 609.95);
+INSERT INTO periodic_table VALUES (86, 'Radon', 'Rn', 'Noble gases', 222.0176, 0.0098, 202.0, 211.45);
 -- INSERT INTO periodic_table VALUES (87, '', '', '', , , , );
 -- INSERT INTO periodic_table VALUES (88, '', '', '', , , , );
 -- INSERT INTO periodic_table VALUES (89, '', '', '', , , , );
