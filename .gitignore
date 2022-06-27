@@ -1,4 +1,3 @@
 build
-db
 sqlite*
-compile.sh
+run.sh

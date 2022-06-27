@@ -23,7 +23,7 @@ int main()
                     "melting_point AS 'Melting Point (K)', boiding_point AS 'Boinding Point (K)' FROM periodic_table";
   int again = 1, exit, opition, searchInt;
 
-  exit = sqlite3_open("db/periodic.db", &db);
+  exit = sqlite3_open("./periodic.db", &db);
 
   if (exit)
   {
