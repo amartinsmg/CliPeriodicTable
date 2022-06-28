@@ -95,35 +95,52 @@ INSERT INTO periodic_table VALUES (83, 'Bismuth', 'Bi', 'Post-transition metals'
 INSERT INTO periodic_table VALUES (84, 'Polonium', 'Po', 'Metalloids', 208.9824, 9.2, 527.15, 1235.15);
 INSERT INTO periodic_table VALUES (85, 'Astatine', 'At', 'Halogens', 209.9871, 6.4, 503.15, 609.95);
 INSERT INTO periodic_table VALUES (86, 'Radon', 'Rn', 'Noble gases', 222.0176, 0.0098, 202.0, 211.45);
--- INSERT INTO periodic_table VALUES (87, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (88, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (89, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (90, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (91, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (92, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (93, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (94, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (95, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (96, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (97, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (98, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (99, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (100, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (101, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (102, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (103, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (104, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (105, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (106, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (107, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (108, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (109, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (110, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (111, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (112, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (113, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (114, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (115, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (116, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (117, '', '', '', , , , );
--- INSERT INTO periodic_table VALUES (118, '', '', '', , , , );
+INSERT INTO periodic_table VALUES (87, 'Francium', 'Fr', 'Alkali metals', 223.0197, 2.48, 281.15, 949.95);
+INSERT INTO periodic_table VALUES (88, 'Radium', 'Ra', 'Alkaline earth metals', 226.0254, 5.5, 969.15, 2010.15);
+INSERT INTO periodic_table VALUES (89, 'Actinium', 'Ac', 'Actinoids', 227.0278, 10.07, 1323.15, 3470.15);
+INSERT INTO periodic_table VALUES (90, 'Thorium', 'Th', 'Actinoids', 232.0380, 11.72, 2023.15, 5060.15);
+INSERT INTO periodic_table VALUES (91, 'Protactinium', 'Pa', 'Actinoids', 231.0358, 15.37, 2113.15, 4300.15);
+INSERT INTO periodic_table VALUES (92, 'Uranium', 'U', 'Actinoids', 238.0289, 19.05, 1405.55, 4404.15);
+INSERT INTO periodic_table VALUES (93, 'Neptunium', 'Np', 'Actinoids', 237.0482, 20.48, 917.15, 4175.15);
+INSERT INTO periodic_table VALUES (94, 'Plutonium', 'Pu', 'Actinoids', 244.0642, 19.74, 914.15, 3505.15);
+INSERT INTO periodic_table VALUES (95, 'Americium', 'Am', 'Actinoids', 243.0614, 13.67, 1449.15, 2880.15);
+INSERT INTO periodic_table VALUES (96, 'Curium', 'Cm', 'Actinoids', 247.0703, 13.51, 1618.15, 3383.15);
+INSERT INTO periodic_table VALUES (97, 'Berkelium', 'Bk', 'Actinoids', 247.0703, 13.25, 1259.15, 2900.15);
+INSERT INTO periodic_table VALUES (98, 'Californium', 'Cf', 'Actinoids', 251.0796, 15.1, 1173.15, 1745.15);
+INSERT INTO periodic_table(atomic_number, element_name, element_symbol, classification, atomic_mass,
+density, melting_point) VALUES (99, 'Einsteinium', 'Es', 'Actinoids', 252.0829, 13.5, 1133.15);
+INSERT INTO periodic_table(atomic_number, element_name, element_symbol, classification, atomic_mass,
+density, melting_point) VALUES (100, 'Ferminum', 'Fm', 'Actinoids', 257.0951, 19.050, 1798.15);
+INSERT INTO periodic_table(atomic_number, element_name, element_symbol, classification, atomic_mass,
+melting_point) VALUES (101, 'Mendelevium', 'Md', 'Actinoids', 258.0951, 1098.15);
+INSERT INTO periodic_table(atomic_number, element_name, element_symbol, classification, atomic_mass,
+melting_point) VALUES (102, 'Nobelium', 'No', 'Actinoids', 259.1009, 1098.15);
+INSERT INTO periodic_table(atomic_number, element_name, element_symbol, classification, atomic_mass,
+melting_point) VALUES (103, 'Lawrencium', 'Lr', 'Actinoids', 266.1193, 1898.15);
+INSERT INTO periodic_table VALUES (104, 'Rutherfordium', 'Rf', 'Transition metals', 261.1087, 23, 2373.15, 5773.15);
+INSERT INTO periodic_table(atomic_number, element_name, element_symbol, classification, atomic_mass,
+density) VALUES (105, 'Dubnium', 'Db', 'Transition metals', 262.1138, 29);
+INSERT INTO periodic_table(atomic_number, element_name, element_symbol, classification, atomic_mass,
+density) VALUES (106, 'Seaborgium', 'Sg', 'Transition metals', 263.1182, 35);
+INSERT INTO periodic_table(atomic_number, element_name, element_symbol, classification, atomic_mass,
+density) VALUES (107, 'Bohrium', 'Bh', 'Transition metals', 262.1229, 37);
+INSERT INTO periodic_table(atomic_number, element_name, element_symbol, classification, atomic_mass)
+VALUES (108, 'Hassium', 'Ha', 'Transition metals', 269);
+INSERT INTO periodic_table(atomic_number, element_name, element_symbol, classification, atomic_mass,
+density) VALUES (109, 'Meitnerium', 'Mt', 'Transition metals', 278, 37.4);
+INSERT INTO periodic_table(atomic_number, element_name, element_symbol, classification, atomic_mass,
+density) VALUES (110, 'Darmstadtium', 'Ds', 'Transition metals', 281.1620, 34.8);
+INSERT INTO periodic_table(atomic_number, element_name, element_symbol, classification, atomic_mass)
+VALUES (111, 'Roentgenium', 'Rg', 'Transition metals', 281.1684);
+INSERT INTO periodic_table(atomic_number, element_name, element_symbol, classification, atomic_mass,
+density) VALUES (112, 'Copernicium', 'Cn', 'Transition metals', 285.1744, 20);
+INSERT INTO periodic_table VALUES (113, 'Nihonium', 'Nh', 'Post-transition metals', 286.1810, 16, 698.15, 1428.15);
+INSERT INTO periodic_table VALUES (114, 'Flerovium', 'Fl', 'Post-transition metals', 287.1904, 14, 341.15, 419.15);
+INSERT INTO periodic_table(atomic_number, element_name, element_symbol, classification, atomic_mass,
+density) VALUES (115, 'Moscovium', 'Mc', 'Post-transition metals', 288.1943, 13.5);
+INSERT INTO periodic_table(atomic_number, element_name, element_symbol, classification, atomic_mass)
+VALUES (116, 'Livermorium', 'Lv', 'Post-transition metals', 291.2045);
+INSERT INTO periodic_table(atomic_number, element_name, element_symbol, classification, atomic_mass)
+VALUES (117, 'Tennessine', 'Ts', 'Halogens', 294.2104);
+INSERT INTO periodic_table(atomic_number, element_name, element_symbol, classification, atomic_mass,
+density, boiding_point) VALUES (118, 'Oganesson', 'Og', 'Noble gases', 294.2139, 5, 368.15);

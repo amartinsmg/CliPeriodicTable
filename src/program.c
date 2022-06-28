@@ -64,7 +64,7 @@ int main()
       printf("\n1  - Alkali metals\n"
              "2  - Alkaline earth metals\n"
              "3  - Lanthanoids\n"
-             "4  - Actinides\n"
+             "4  - Actinoids\n"
              "5  - Transition metals\n"
              "6  - Post-transition metals\n"
              "7  - Metalloids\n"
@@ -86,7 +86,7 @@ int main()
         strcpy(searchChar, "lanthanoids");
         break;
       case 4:
-        strcpy(searchChar, "actinides");
+        strcpy(searchChar, "actinoids");
         break;
       case 5:
         strcpy(searchChar, "transition metals");
