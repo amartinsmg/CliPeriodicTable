@@ -18,12 +18,13 @@ int main()
   char query[350],
       searchChar[30],
       *errMsg = 0,
+      *dbFileName = "./periodic.db",
       *queryBegin = "SELECT element_name AS 'Element Name', element_symbol AS Symbol, atomic_number AS 'Atomic Number',"
                     "classification AS Classification, atomic_mass AS 'Atomic Mass (g/mol)', density AS 'Density (g/cm^3)',"
                     "melting_point AS 'Melting Point (K)', boiding_point AS 'Boinding Point (K)' FROM periodic_table";
   int again, exit, opition, searchInt;
 
-  exit = sqlite3_open("./periodic.db", &db);
+  exit = sqlite3_open(dbFileName, &db);
 
   if (exit)
   {
