@@ -6,3 +6,5 @@ To create the sqlite3 database and compile the program, you can use this command
 ````
 make
 ````
+
+<sub>**Note**: before compiling, make sure you have installed GNU C Compiler (`gcc`) and sqlite3.</sub>
