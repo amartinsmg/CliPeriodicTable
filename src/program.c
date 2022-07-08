@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-#include "sqlite3.h"
+#include <libgen.h>
+#include <sqlite3.h>
 
 static int callback(void *data, int argc, char **argv, char **azColName)
 {
@@ -12,17 +14,19 @@ static int callback(void *data, int argc, char **argv, char **azColName)
   return 0;
 }
 
-int main()
+int main(int argc, char **argv)
 {
   sqlite3 *db;
   char query[350],
       searchChar[30],
+      dbFileName[PATH_MAX + 15],
       *errMsg = 0,
-      *dbFileName = "./periodic.db",
       *queryBegin = "SELECT element_name AS 'Element Name', element_symbol AS Symbol, atomic_number AS 'Atomic Number',"
                     "classification AS Classification, atomic_mass AS 'Atomic Mass (g/mol)', density AS 'Density (g/cm^3)',"
                     "melting_point AS 'Melting Point (K)', boiding_point AS 'Boinding Point (K)' FROM periodic_table";
   int again, exit, opition, searchInt;
+
+  sprintf(dbFileName, "%s/periodic.db", argc ? dirname(argv[0]) : ".");
 
   exit = sqlite3_open(dbFileName, &db);
 
@@ -45,99 +49,108 @@ int main()
            "Choose a option: ");
     scanf("%d", &opition);
 
-    switch (opition)
+    do
     {
-    case 1:
-      printf("Enter the element name: ");
-      scanf("%s", searchChar);
-      sprintf(query, "%s WHERE element_name LIKE '%%%s%%'", queryBegin, searchChar);
-      break;
-    case 2:
-      printf("Enter the element symbol: ");
-      scanf("%s", searchChar);
-      sprintf(query, "%s WHERE element_symbol LIKE '%s'", queryBegin, searchChar);
-      break;
-    case 3:
-      printf("Enter the atomic number: ");
-      scanf("%d", &searchInt);
-      sprintf(query, "%s WHERE atomic_number = %d", queryBegin, searchInt);
-      break;
-    case 4:
-      printf("\n1  - Alkali metals\n"
-             "2  - Alkaline earth metals\n"
-             "3  - Lanthanoids\n"
-             "4  - Actinoids\n"
-             "5  - Transition metals\n"
-             "6  - Post-transition metals\n"
-             "7  - Metalloids\n"
-             "8  - Nonmetals\n"
-             "9  - Halogens\n"
-             "10 - Noble metals\n\n"
-             "Choose a option: ");
-      scanf("%d", &searchInt);
-
-      switch (searchInt)
+      switch (opition)
       {
       case 1:
-        strcpy(searchChar, "alkali metals");
+        printf("Enter the element name: ");
+        scanf("%s", searchChar);
+        sprintf(query, "%s WHERE element_name LIKE '%%%s%%'", queryBegin, searchChar);
         break;
+
       case 2:
-        strcpy(searchChar, "alkaline earth metals");
+        printf("Enter the element symbol: ");
+        scanf("%s", searchChar);
+        sprintf(query, "%s WHERE element_symbol LIKE '%s'", queryBegin, searchChar);
         break;
+
       case 3:
-        strcpy(searchChar, "lanthanoids");
+        printf("Enter the atomic number: ");
+        scanf("%d", &searchInt);
+        sprintf(query, "%s WHERE atomic_number = %d", queryBegin, searchInt);
         break;
+
       case 4:
-        strcpy(searchChar, "actinoids");
+        printf("\n1  - Alkali metals\n"
+               "2  - Alkaline earth metals\n"
+               "3  - Lanthanoids\n"
+               "4  - Actinoids\n"
+               "5  - Transition metals\n"
+               "6  - Post-transition metals\n"
+               "7  - Metalloids\n"
+               "8  - Nonmetals\n"
+               "9  - Halogens\n"
+               "10 - Noble metals\n\n"
+               "Choose a option: ");
+        scanf("%d", &searchInt);
+        switch (searchInt)
+        {
+        case 1:
+          strcpy(searchChar, "alkali metals");
+          break;
+        case 2:
+          strcpy(searchChar, "alkaline earth metals");
+          break;
+        case 3:
+          strcpy(searchChar, "lanthanoids");
+          break;
+        case 4:
+          strcpy(searchChar, "actinoids");
+          break;
+        case 5:
+          strcpy(searchChar, "transition metals");
+          break;
+        case 6:
+          strcpy(searchChar, "post-transition metals");
+          break;
+        case 7:
+          strcpy(searchChar, "metalloids");
+          break;
+        case 8:
+          strcpy(searchChar, "nonmetals");
+          break;
+        case 9:
+          strcpy(searchChar, "halogens");
+          break;
+        case 10:
+          strcpy(searchChar, "noble gases");
+          break;
+        default:
+          printf("\nInvalid option");
+          strcpy(searchChar, "NULL");
+        }
+        sprintf(query, "%s WHERE classification LIKE '%s'", queryBegin, searchChar);
         break;
+
       case 5:
-        strcpy(searchChar, "transition metals");
+        strcpy(query, queryBegin);
         break;
+
       case 6:
-        strcpy(searchChar, "post-transition metals");
-        break;
-      case 7:
-        strcpy(searchChar, "metalloids");
-        break;
-      case 8:
-        strcpy(searchChar, "nonmetals");
-        break;
-      case 9:
-        strcpy(searchChar, "halogens");
-        break;
-      case 10:
-        strcpy(searchChar, "noble gases");
-        break;
+        return 0;
       default:
-        printf("\nInvalid option");
-        strcpy(searchChar, "NULL");
+        printf("Invalid option\n");
+        return 0;
       }
-      sprintf(query, "%s WHERE classification LIKE '%s'", queryBegin, searchChar);
-      break;
-    case 5:
-      strcpy(query, queryBegin);
-      break;
-    case 6:
-      return 0;
-    default:
-      printf("Invalid option\n");
-      return 0;
-    }
 
-    printf("\n");
-    exit = sqlite3_exec(db, query, callback, 0, &errMsg);
+      printf("\n");
+      exit = sqlite3_exec(db, query, callback, 0, &errMsg);
 
-    if (exit)
-    {
-      fprintf(stderr, "%s\n", errMsg);
-      return 1;
-    }
+      if (exit)
+      {
+        fprintf(stderr, "%s\n", errMsg);
+        return 1;
+      }
 
-    printf("\n1  - Do another query\n"
-           "2  - Quit\n\n"
-           "Enter a option: ");
-    scanf("%d", &again);
-  } while (again == 1);
+      printf("\n1  - Do another query\n"
+             "2  - Return main menu\n"
+             "3  - Quit\n\n"
+             "Enter a option: ");
+      scanf("%d", &again);
+
+    } while (again == 1);
+  } while (again == 2);
 
   sqlite3_close(db);
 
