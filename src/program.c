@@ -1,13 +1,12 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <libgen.h>
 #include <sqlite3.h>
+#include <stdlib.h>
+#include <string.h>
 
 static int callback(void *data, int argc, char **argv, char **azColName)
 {
-  int i;
-  for (i = 0; i < argc; i++)
+  for (int i = 0; i < argc; i++)
     printf("  %s: %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
   printf("\n");
 
@@ -32,7 +31,7 @@ int main(int argc, char **argv)
 
   if (exit)
   {
-    fprintf(stderr, "Could not connect ot database");
+    fprintf(stderr, "Could not connect to database");
     return 1;
   }
 
