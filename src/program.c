@@ -128,6 +128,7 @@ int main(int argc, char **argv)
 
       case 6:
         return 0;
+
       default:
         printf("Invalid option\n");
         return 0;
