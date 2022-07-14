@@ -6,7 +6,7 @@ CREATE TABLE periodic_table(
   atomic_mass REAL NOT NULL,
   density REAL,
   melting_point REAL,
-  boiding_point REAL
+  boiling_point REAL
 );
 
 INSERT INTO
@@ -465,7 +465,7 @@ INSERT INTO
     classification,
     atomic_mass,
     density,
-    boiding_point
+    boiling_point
   )
 VALUES
   (
@@ -1726,7 +1726,7 @@ INSERT INTO
     classification,
     atomic_mass,
     density,
-    boiding_point
+    boiling_point
   )
 VALUES
   (

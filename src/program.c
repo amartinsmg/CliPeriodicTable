@@ -22,7 +22,7 @@ int main(int argc, char **argv)
       *errMsg = 0,
       *queryBegin = "SELECT element_name AS 'Element Name', element_symbol AS Symbol, atomic_number AS 'Atomic Number',"
                     "classification AS Classification, atomic_mass AS 'Atomic Mass (g/mol)', density AS 'Density (g/cm^3)',"
-                    "melting_point AS 'Melting Point (K)', boiding_point AS 'Boinding Point (K)' FROM periodic_table";
+                    "melting_point AS 'Melting Point (K)', boiling_point AS 'Boiling Point (K)' FROM periodic_table";
   int again, exit, opition, searchInt;
 
   sprintf(dbFileName, "%s/periodic.db", argc ? dirname(argv[0]) : ".");
@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 
   if (exit)
   {
-    fprintf(stderr, "Could not connect to database");
+    fprintf(stderr, "Could not connect to the database");
     return 1;
   }
 
@@ -45,7 +45,7 @@ int main(int argc, char **argv)
            "4  - Find elements by classification\n"
            "5  - Print all elements\n"
            "6  - Quit\n\n"
-           "Choose a option: ");
+           "Enter an option: ");
     scanf("%d", &opition);
 
     do
@@ -81,7 +81,7 @@ int main(int argc, char **argv)
                "8  - Nonmetals\n"
                "9  - Halogens\n"
                "10 - Noble metals\n\n"
-               "Choose a option: ");
+               "Enter an option: ");
         scanf("%d", &searchInt);
         switch (searchInt)
         {
@@ -144,9 +144,9 @@ int main(int argc, char **argv)
       }
 
       printf("\n1  - Do another query\n"
-             "2  - Return main menu\n"
+             "2  - Return the main menu\n"
              "3  - Quit\n\n"
-             "Enter a option: ");
+             "Enter an option: ");
       scanf("%d", &again);
 
     } while (again == 1);
