@@ -18,7 +18,7 @@ int main(int argc, char **argv)
   sqlite3 *db;
   char query[350],
       searchChar[30],
-      dbFileName[PATH_MAX + 15],
+      dbFileName[275],
       *errMsg = 0,
       *queryBegin = "SELECT element_name AS 'Element Name', element_symbol AS Symbol, atomic_number AS 'Atomic Number',"
                     "classification AS Classification, atomic_mass AS 'Atomic Mass (g/mol)', density AS 'Density (g/cm^3)',"

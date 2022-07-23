@@ -1,3 +1,4 @@
-libs
+.vscode
 build
-*.sh
+libs
+Makefile

@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS periodic_table;
+
 CREATE TABLE periodic_table(
   atomic_number INT PRIMARY KEY NOT NULL,
   element_name TEXT NOT NULL,

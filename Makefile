@@ -1,5 +1,4 @@
 all: database program
-	@echo Program compiled and database created successfully
 
 dir:
 	[ -d build ] || mkdir build
@@ -7,7 +6,13 @@ dir:
 database: dir
 	sqlite3 build/periodic.db < src/createdb.sql
 
-program: dir
+lib:
+	[ $(OS) != "Windows_NT" ] || [ -d libs ] || \
+	git clone https://github.com/azadkuh/sqlite-amalgamation.git libs
+
+program: dir lib
+	([ $(OS) == "Windows_NT" ] && \
+	gcc -o build/program -Ilibs libs/sqlite3.c src/program.c) || \
 	gcc src/program.c -o build/program -lsqlite3
 
 clean:
