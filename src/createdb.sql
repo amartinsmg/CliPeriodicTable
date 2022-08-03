@@ -3,12 +3,13 @@ DROP TABLE IF EXISTS periodic_table;
 CREATE TABLE periodic_table(
   atomic_number INT PRIMARY KEY NOT NULL,
   element_name TEXT NOT NULL,
-  element_symbol TEXT NOT NULL,
+  element_symbol CHARACTER(2) NOT NULL,
   classification TEXT NOT NULL,
   atomic_mass REAL NOT NULL,
   density REAL,
   melting_point REAL,
-  boiling_point REAL
+  boiling_point REAL,
+  UNIQUE(element_name, element_symbol)
 );
 
 INSERT INTO

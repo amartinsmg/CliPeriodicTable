@@ -4,7 +4,7 @@ dir:
 	[ -d build ] || mkdir build
 
 database: dir
-	sqlite3 build/periodic.db < src/createdb.sql
+	sqlite3 build/database.db < src/createdb.sql
 
 lib:
 	[ $(OS) != "Windows_NT" ] || [ -d libs ] || \

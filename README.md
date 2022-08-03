@@ -9,4 +9,4 @@ To compile the program and create the SQLite3 database, you can use this command
 make
 ````
 
-<sub>**Note**: Before compiling, make sure you have installed <a href="https://gcc.gnu.org/">GNU C Compiler</a> (`gcc`) and <a href="https://www.sqlite.org/index.html">SQLite3</a>.</sub>
+<sub>**Note**: Before compiling, make sure you have installed [GNU Make](https://www.gnu.org/software/make/), [GNU C Compiler](https://gcc.gnu.org/) and [SQLite3](https://www.sqlite.org/index.html)</sub>

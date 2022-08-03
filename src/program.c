@@ -18,14 +18,14 @@ int main(int argc, char **argv)
   sqlite3 *db;
   char query[350],
       searchChar[30],
-      dbFileName[275],
+      dbFileName[300],
       *errMsg = 0,
       *queryBegin = "SELECT element_name AS 'Element Name', element_symbol AS Symbol, atomic_number AS 'Atomic Number',"
                     "classification AS Classification, atomic_mass AS 'Atomic Mass (g/mol)', density AS 'Density (g/cm^3)',"
                     "melting_point AS 'Melting Point (K)', boiling_point AS 'Boiling Point (K)' FROM periodic_table";
   int again, exit, opition, searchInt;
 
-  sprintf(dbFileName, "%s/periodic.db", argc ? dirname(argv[0]) : ".");
+  sprintf(dbFileName, "%s/database.db", argc ? dirname(argv[0]) : ".");
 
   exit = sqlite3_open(dbFileName, &db);
 
