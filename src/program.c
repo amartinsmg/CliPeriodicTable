@@ -4,8 +4,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-static int callback(void *data, int argc, char **argv, char **azColName)
+static int printQuery(void *data, int argc, char **argv, char **azColName)
 {
+  *((int*)data) += 1;
   for (int i = 0; i < argc; i++)
     printf("  %s: %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
   printf("\n");
@@ -16,14 +17,15 @@ static int callback(void *data, int argc, char **argv, char **azColName)
 int main(int argc, char **argv)
 {
   sqlite3 *db;
-  char query[350],
+  char query[450],
       searchChar[30],
       dbFileName[300],
       *errMsg = 0,
-      *queryBegin = "SELECT element_name AS 'Element Name', element_symbol AS Symbol, atomic_number AS 'Atomic Number',"
-                    "classification AS Classification, atomic_mass AS 'Atomic Mass (g/mol)', density AS 'Density (g/cm^3)',"
-                    "melting_point AS 'Melting Point (K)', boiling_point AS 'Boiling Point (K)' FROM periodic_table";
-  int again, exit, opition, searchInt;
+      *queryBegin = "SELECT p.element_name AS 'Element Name', p.element_symbol AS Symbol, p.atomic_number AS 'Atomic Number',"
+                    "c.classification_text AS Classification, p.atomic_mass AS 'Atomic Mass (g/mol)', p.density AS 'Density (g/cm^3)',"
+                    "p.melting_point AS 'Melting Point (K)', p.boiling_point AS 'Boiling Point (K)' FROM periodic_table AS p "
+                    "INNER JOIN classifications AS c ON p.classification = c.code";
+  int again, count = 0, exit, opition, searchInt;
 
   sprintf(dbFileName, "%s/database.db", argc ? dirname(argv[0]) : ".");
 
@@ -55,19 +57,19 @@ int main(int argc, char **argv)
       case 1:
         printf("Enter the element name: ");
         scanf("%s", searchChar);
-        sprintf(query, "%s WHERE element_name LIKE '%%%s%%'", queryBegin, searchChar);
+        sprintf(query, "%s WHERE p.element_name LIKE '%%%s%%'", queryBegin, searchChar);
         break;
 
       case 2:
         printf("Enter the element symbol: ");
         scanf("%s", searchChar);
-        sprintf(query, "%s WHERE element_symbol LIKE '%s'", queryBegin, searchChar);
+        sprintf(query, "%s WHERE p.element_symbol LIKE '%s'", queryBegin, searchChar);
         break;
 
       case 3:
         printf("Enter the atomic number: ");
         scanf("%d", &searchInt);
-        sprintf(query, "%s WHERE atomic_number = %d", queryBegin, searchInt);
+        sprintf(query, "%s WHERE p.atomic_number = %d", queryBegin, searchInt);
         break;
 
       case 4:
@@ -83,43 +85,7 @@ int main(int argc, char **argv)
                "10 - Noble metals\n\n"
                "Enter an option: ");
         scanf("%d", &searchInt);
-        switch (searchInt)
-        {
-        case 1:
-          strcpy(searchChar, "alkali metals");
-          break;
-        case 2:
-          strcpy(searchChar, "alkaline earth metals");
-          break;
-        case 3:
-          strcpy(searchChar, "lanthanoids");
-          break;
-        case 4:
-          strcpy(searchChar, "actinoids");
-          break;
-        case 5:
-          strcpy(searchChar, "transition metals");
-          break;
-        case 6:
-          strcpy(searchChar, "post-transition metals");
-          break;
-        case 7:
-          strcpy(searchChar, "metalloids");
-          break;
-        case 8:
-          strcpy(searchChar, "nonmetals");
-          break;
-        case 9:
-          strcpy(searchChar, "halogens");
-          break;
-        case 10:
-          strcpy(searchChar, "noble gases");
-          break;
-        default:
-          printf("\nInvalid option");
-          strcpy(searchChar, "NULL");
-        }
-        sprintf(query, "%s WHERE classification LIKE '%s'", queryBegin, searchChar);
+        sprintf(query, "%s WHERE p.classification = %d", queryBegin, searchInt);
         break;
 
       case 5:
@@ -130,18 +96,22 @@ int main(int argc, char **argv)
         return 0;
 
       default:
-        printf("Invalid option\n");
+        puts("Invalid option");
         return 0;
       }
 
       printf("\n");
-      exit = sqlite3_exec(db, query, callback, 0, &errMsg);
+      exit = sqlite3_exec(db, query, printQuery, &count, &errMsg);
 
       if (exit)
       {
         fprintf(stderr, "%s\n", errMsg);
         return 1;
       }
+
+      if(!count)
+        puts("  No results.");
+      count = 0;
 
       printf("\n1  - Do another query\n"
              "2  - Return the main menu\n"
