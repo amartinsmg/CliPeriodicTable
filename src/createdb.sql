@@ -1,12 +1,17 @@
 DROP TABLE IF EXISTS classifications;
+
 DROP TABLE IF EXISTS periodic_table;
+
 CREATE TABLE classifications(
   code INT PRIMARY KEY,
   classification_text VARCHAR(45) NOT NULL,
   UNIQUE(classification_text)
 );
-INSERT INTO classifications
-VALUES (1, 'Alkali metals'),
+
+INSERT INTO
+  classifications
+VALUES
+  (1, 'Alkali metals'),
   (2, 'Alkaline earth metals'),
   (3, 'Lanthanoids'),
   (4, 'Actinoids'),
@@ -16,6 +21,7 @@ VALUES (1, 'Alkali metals'),
   (8, 'Nonmetals'),
   (9, 'Halogens'),
   (10, 'Noble gases');
+
 CREATE TABLE periodic_table(
   atomic_number INT PRIMARY KEY NOT NULL,
   element_name VARCHAR(45) NOT NULL,
@@ -28,8 +34,11 @@ CREATE TABLE periodic_table(
   UNIQUE(element_name, element_symbol),
   FOREIGN KEY (classification) REFERENCES classifications(code)
 );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     1,
     'Hydrogen',
     'H',
@@ -39,8 +48,11 @@ VALUES (
     14.01,
     20.28
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     2,
     'Helium',
     'He',
@@ -50,8 +62,11 @@ VALUES (
     0.95,
     4.25
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     3,
     'Lithium',
     'Li',
@@ -61,8 +76,11 @@ VALUES (
     453.65,
     1615.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     4,
     'Beryllium',
     'Be',
@@ -72,8 +90,11 @@ VALUES (
     1551.15,
     3243.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     5,
     'Boron',
     'B',
@@ -83,8 +104,11 @@ VALUES (
     2348.95,
     4199.95
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     6,
     'Carbon',
     'C',
@@ -94,8 +118,11 @@ VALUES (
     3823.15,
     5100.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     7,
     'Nitrogen',
     'N',
@@ -105,8 +132,11 @@ VALUES (
     63.25,
     77.35
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     8,
     'Oxygen',
     'O',
@@ -116,8 +146,11 @@ VALUES (
     54.36,
     90.19
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     9,
     'Fluorine',
     'F',
@@ -127,8 +160,11 @@ VALUES (
     53.48,
     85.04
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     10,
     'Neon',
     'Ne',
@@ -138,8 +174,11 @@ VALUES (
     24.48,
     27.1
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     11,
     'Sodium',
     'Na',
@@ -149,8 +188,11 @@ VALUES (
     370.95,
     1156.09
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     12,
     'Magnesium',
     'Mg',
@@ -160,8 +202,11 @@ VALUES (
     923.15,
     1363.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     13,
     'Aluminum',
     'Al',
@@ -171,8 +216,11 @@ VALUES (
     933.15,
     2791.97
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     14,
     'Silicon',
     'Si',
@@ -182,8 +230,11 @@ VALUES (
     1688,
     3538.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     15,
     'Phosphorus',
     'P',
@@ -193,8 +244,11 @@ VALUES (
     317.3,
     553.65
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     16,
     'Sulfur',
     'S',
@@ -204,8 +258,11 @@ VALUES (
     385.95,
     717.82
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     17,
     'Chlorine',
     'Cl',
@@ -215,8 +272,11 @@ VALUES (
     172.17,
     238.55
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     18,
     'Argon',
     'Ar',
@@ -226,8 +286,11 @@ VALUES (
     83.81,
     87.3
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     19,
     'Potassium',
     'K',
@@ -237,8 +300,11 @@ VALUES (
     336.53,
     1031.95
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     20,
     'Calcium',
     'Ca',
@@ -248,8 +314,11 @@ VALUES (
     1115.15,
     1757.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     21,
     'Scandium',
     'Sc',
@@ -259,8 +328,11 @@ VALUES (
     1814.15,
     3103.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     22,
     'Titanium',
     'Ti',
@@ -270,8 +342,11 @@ VALUES (
     1933.15,
     3560.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     23,
     'Vanadium',
     'V',
@@ -281,8 +356,11 @@ VALUES (
     2183.15,
     3680.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     24,
     'Chromium',
     'Cr',
@@ -292,8 +370,11 @@ VALUES (
     2180.15,
     2945.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     25,
     'Manganese',
     'Mn',
@@ -303,8 +384,11 @@ VALUES (
     1518.15,
     2334.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     26,
     'Iron',
     'Fe',
@@ -314,8 +398,11 @@ VALUES (
     1812.15,
     3135.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     27,
     'Cobalt',
     'Co',
@@ -325,8 +412,11 @@ VALUES (
     1766.15,
     3143.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     28,
     'Nickel',
     'Ni',
@@ -336,8 +426,11 @@ VALUES (
     1728.15,
     3188.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     29,
     'Copper',
     'Cu',
@@ -347,8 +440,11 @@ VALUES (
     1357.77,
     2835.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     30,
     'Zinc',
     'Zn',
@@ -358,8 +454,11 @@ VALUES (
     692.65,
     1179.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     31,
     'Gallium',
     'Ga',
@@ -369,8 +468,11 @@ VALUES (
     302.95,
     2476.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     32,
     'Germanium',
     'Ge',
@@ -380,7 +482,9 @@ VALUES (
     1210.65,
     3106.15
   );
-INSERT INTO periodic_table(
+
+INSERT INTO
+  periodic_table(
     atomic_number,
     element_name,
     element_symbol,
@@ -389,7 +493,8 @@ INSERT INTO periodic_table(
     density,
     boiling_point
   )
-VALUES (
+VALUES
+  (
     33,
     'Arsenic',
     'As',
@@ -398,8 +503,11 @@ VALUES (
     5.72,
     886.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     34,
     'Selenium',
     'Se',
@@ -409,8 +517,11 @@ VALUES (
     490.15,
     957.95
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     35,
     'Bromine',
     'Br',
@@ -420,19 +531,25 @@ VALUES (
     265.9,
     331.95
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     36,
     'Krypton',
     'Kr',
-    'Noble metals',
+    10,
     83.798,
     0.003749,
     115.78,
     119.75
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     37,
     'Rubidium',
     'Rb',
@@ -442,8 +559,11 @@ VALUES (
     312.47,
     960.35
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     38,
     'Strontium',
     'Sr',
@@ -453,8 +573,11 @@ VALUES (
     1050.15,
     1655.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     39,
     'Yttrium',
     'Y',
@@ -464,8 +587,11 @@ VALUES (
     1799.15,
     3611.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     40,
     'Zirconium',
     'Zr',
@@ -475,8 +601,11 @@ VALUES (
     2128.15,
     4682.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     41,
     'Niobium',
     'Nb',
@@ -486,8 +615,11 @@ VALUES (
     2750.15,
     5200.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     42,
     'Molybdenum',
     'Mo',
@@ -497,8 +629,11 @@ VALUES (
     2896.15,
     4912.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     43,
     'Technetium',
     'Tc',
@@ -508,8 +643,11 @@ VALUES (
     2430.15,
     4538.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     44,
     'Ruthenium',
     'Ru',
@@ -519,8 +657,11 @@ VALUES (
     2607.15,
     4350.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     45,
     'Rhodiium',
     'Rh',
@@ -530,8 +671,11 @@ VALUES (
     2237.15,
     4000.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     46,
     'Palladium',
     'Pd',
@@ -541,8 +685,11 @@ VALUES (
     1828.15,
     3236.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     47,
     'Silver',
     'Ag',
@@ -552,8 +699,11 @@ VALUES (
     1234.95,
     2435.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     48,
     'Cadmium',
     'Cd',
@@ -563,8 +713,11 @@ VALUES (
     592.25,
     1039.95
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     49,
     'Indium',
     'In',
@@ -574,8 +727,11 @@ VALUES (
     429.75,
     2345.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     50,
     'Tin',
     'Sn',
@@ -585,8 +741,11 @@ VALUES (
     505.08,
     2875.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     51,
     'Antimony',
     'Sb',
@@ -596,8 +755,11 @@ VALUES (
     903.9,
     1860.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     52,
     'Tellurium',
     'Te',
@@ -607,8 +769,11 @@ VALUES (
     722.7,
     1260.95
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     53,
     'Iodine',
     'I',
@@ -618,8 +783,11 @@ VALUES (
     386.7,
     457.5
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     54,
     'Xenon',
     'Xe',
@@ -629,8 +797,11 @@ VALUES (
     161.35,
     165.05
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     55,
     'Caesium',
     'Cs',
@@ -640,8 +811,11 @@ VALUES (
     301.6,
     943.95
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     56,
     'Barium',
     'Ba',
@@ -651,8 +825,11 @@ VALUES (
     1000.15,
     2170.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     57,
     'Lanthanum',
     'La',
@@ -662,8 +839,11 @@ VALUES (
     1193.15,
     3737.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     58,
     'Cerium',
     'Ce',
@@ -673,8 +853,11 @@ VALUES (
     1068.15,
     3716.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     59,
     'Praseodymium',
     'Pr',
@@ -684,8 +867,11 @@ VALUES (
     1204.15,
     3785.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     60,
     'Neodymium',
     'Nd',
@@ -695,8 +881,11 @@ VALUES (
     1283.15,
     3347.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     61,
     'Promethium',
     'Pm',
@@ -706,8 +895,11 @@ VALUES (
     1440.15,
     3273.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     62,
     'Samarium',
     'Sm',
@@ -717,8 +909,11 @@ VALUES (
     1345.15,
     2067.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     63,
     'Europium',
     'Eu',
@@ -728,8 +923,11 @@ VALUES (
     1095.15,
     1870.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     64,
     'Gadolinium',
     'Gd',
@@ -739,8 +937,11 @@ VALUES (
     1584.15,
     3545.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     65,
     'Terbium',
     'Tb',
@@ -750,8 +951,11 @@ VALUES (
     1633.15,
     3500.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     66,
     'Dysprosium',
     'Dy',
@@ -761,8 +965,11 @@ VALUES (
     1682.15,
     2840.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     67,
     'Holmium',
     'Ho',
@@ -772,8 +979,11 @@ VALUES (
     1743.15,
     2968.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     68,
     'Erbium',
     'Er',
@@ -783,8 +993,11 @@ VALUES (
     1802.15,
     3140.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     69,
     'Thulium',
     'Tm',
@@ -794,8 +1007,11 @@ VALUES (
     1818.15,
     2220.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     70,
     'Ytterbium',
     'Yb',
@@ -805,8 +1021,11 @@ VALUES (
     1097.15,
     1466.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     71,
     'Lutetium',
     'Lu',
@@ -816,8 +1035,11 @@ VALUES (
     1936.15,
     3668.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     72,
     'Hafnium',
     'Hf',
@@ -827,8 +1049,11 @@ VALUES (
     2506.15,
     4875.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     73,
     'Tantalum',
     'Ta',
@@ -838,8 +1063,11 @@ VALUES (
     3290.15,
     5731.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     74,
     'Tugsten',
     'W',
@@ -849,8 +1077,11 @@ VALUES (
     3695.15,
     5828.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     75,
     'Rhenium',
     'Re',
@@ -860,8 +1091,11 @@ VALUES (
     3453.15,
     5900.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     76,
     'Osmium',
     'Os',
@@ -871,8 +1105,11 @@ VALUES (
     3306.15,
     5870.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     77,
     'Iridium',
     'Ir',
@@ -882,8 +1119,11 @@ VALUES (
     2683.15,
     4403.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     78,
     'Platinum',
     'Pl',
@@ -893,8 +1133,11 @@ VALUES (
     2041.15,
     4098.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     79,
     'Gold',
     'Au',
@@ -904,8 +1147,11 @@ VALUES (
     1337.15,
     2973.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     80,
     'Mercury',
     'Hg',
@@ -915,8 +1161,11 @@ VALUES (
     234.15,
     629.85
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     81,
     'Thalium',
     'Tl',
@@ -926,8 +1175,11 @@ VALUES (
     576.75,
     1746.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     82,
     'Lead',
     'Pb',
@@ -937,8 +1189,11 @@ VALUES (
     600.55,
     2022.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     83,
     'Bismuth',
     'Bi',
@@ -948,8 +1203,11 @@ VALUES (
     544.55,
     1833.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     84,
     'Polonium',
     'Po',
@@ -959,8 +1217,11 @@ VALUES (
     527.15,
     1235.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     85,
     'Astatine',
     'At',
@@ -970,8 +1231,11 @@ VALUES (
     503.15,
     609.95
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     86,
     'Radon',
     'Rn',
@@ -981,8 +1245,11 @@ VALUES (
     202.0,
     211.45
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     87,
     'Francium',
     'Fr',
@@ -992,8 +1259,11 @@ VALUES (
     281.15,
     949.95
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     88,
     'Radium',
     'Ra',
@@ -1003,8 +1273,11 @@ VALUES (
     969.15,
     2010.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     89,
     'Actinium',
     'Ac',
@@ -1014,8 +1287,11 @@ VALUES (
     1323.15,
     3470.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     90,
     'Thorium',
     'Th',
@@ -1025,8 +1301,11 @@ VALUES (
     2023.15,
     5060.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     91,
     'Protactinium',
     'Pa',
@@ -1036,8 +1315,11 @@ VALUES (
     2113.15,
     4300.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     92,
     'Uranium',
     'U',
@@ -1047,8 +1329,11 @@ VALUES (
     1405.55,
     4404.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     93,
     'Neptunium',
     'Np',
@@ -1058,8 +1343,11 @@ VALUES (
     917.15,
     4175.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     94,
     'Plutonium',
     'Pu',
@@ -1069,8 +1357,11 @@ VALUES (
     914.15,
     3505.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     95,
     'Americium',
     'Am',
@@ -1080,8 +1371,11 @@ VALUES (
     1449.15,
     2880.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     96,
     'Curium',
     'Cm',
@@ -1091,8 +1385,11 @@ VALUES (
     1618.15,
     3383.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     97,
     'Berkelium',
     'Bk',
@@ -1102,8 +1399,11 @@ VALUES (
     1259.15,
     2900.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     98,
     'Californium',
     'Cf',
@@ -1113,7 +1413,9 @@ VALUES (
     1173.15,
     1745.15
   );
-INSERT INTO periodic_table(
+
+INSERT INTO
+  periodic_table(
     atomic_number,
     element_name,
     element_symbol,
@@ -1122,7 +1424,8 @@ INSERT INTO periodic_table(
     density,
     melting_point
   )
-VALUES (
+VALUES
+  (
     99,
     'Einsteinium',
     'Es',
@@ -1131,7 +1434,9 @@ VALUES (
     13.5,
     1133.15
   );
-INSERT INTO periodic_table(
+
+INSERT INTO
+  periodic_table(
     atomic_number,
     element_name,
     element_symbol,
@@ -1140,7 +1445,8 @@ INSERT INTO periodic_table(
     density,
     melting_point
   )
-VALUES (
+VALUES
+  (
     100,
     'Ferminum',
     'Fm',
@@ -1149,7 +1455,9 @@ VALUES (
     19.050,
     1798.15
   );
-INSERT INTO periodic_table(
+
+INSERT INTO
+  periodic_table(
     atomic_number,
     element_name,
     element_symbol,
@@ -1157,7 +1465,8 @@ INSERT INTO periodic_table(
     atomic_mass,
     melting_point
   )
-VALUES (
+VALUES
+  (
     101,
     'Mendelevium',
     'Md',
@@ -1165,7 +1474,9 @@ VALUES (
     258.0951,
     1098.15
   );
-INSERT INTO periodic_table(
+
+INSERT INTO
+  periodic_table(
     atomic_number,
     element_name,
     element_symbol,
@@ -1173,7 +1484,8 @@ INSERT INTO periodic_table(
     atomic_mass,
     melting_point
   )
-VALUES (
+VALUES
+  (
     102,
     'Nobelium',
     'No',
@@ -1181,7 +1493,9 @@ VALUES (
     259.1009,
     1098.15
   );
-INSERT INTO periodic_table(
+
+INSERT INTO
+  periodic_table(
     atomic_number,
     element_name,
     element_symbol,
@@ -1189,7 +1503,8 @@ INSERT INTO periodic_table(
     atomic_mass,
     melting_point
   )
-VALUES (
+VALUES
+  (
     103,
     'Lawrencium',
     'Lr',
@@ -1197,8 +1512,11 @@ VALUES (
     266.1193,
     1898.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     104,
     'Rutherfordium',
     'Rf',
@@ -1208,7 +1526,9 @@ VALUES (
     2373.15,
     5773.15
   );
-INSERT INTO periodic_table(
+
+INSERT INTO
+  periodic_table(
     atomic_number,
     element_name,
     element_symbol,
@@ -1216,7 +1536,8 @@ INSERT INTO periodic_table(
     atomic_mass,
     density
   )
-VALUES (
+VALUES
+  (
     105,
     'Dubnium',
     'Db',
@@ -1224,7 +1545,9 @@ VALUES (
     262.1138,
     29
   );
-INSERT INTO periodic_table(
+
+INSERT INTO
+  periodic_table(
     atomic_number,
     element_name,
     element_symbol,
@@ -1232,7 +1555,8 @@ INSERT INTO periodic_table(
     atomic_mass,
     density
   )
-VALUES (
+VALUES
+  (
     106,
     'Seaborgium',
     'Sg',
@@ -1240,7 +1564,9 @@ VALUES (
     263.1182,
     35
   );
-INSERT INTO periodic_table(
+
+INSERT INTO
+  periodic_table(
     atomic_number,
     element_name,
     element_symbol,
@@ -1248,7 +1574,8 @@ INSERT INTO periodic_table(
     atomic_mass,
     density
   )
-VALUES (
+VALUES
+  (
     107,
     'Bohrium',
     'Bh',
@@ -1256,15 +1583,20 @@ VALUES (
     262.1229,
     37
   );
-INSERT INTO periodic_table(
+
+INSERT INTO
+  periodic_table(
     atomic_number,
     element_name,
     element_symbol,
     classification,
     atomic_mass
   )
-VALUES (108, 'Hassium', 'Ha', 5, 269);
-INSERT INTO periodic_table(
+VALUES
+  (108, 'Hassium', 'Ha', 5, 269);
+
+INSERT INTO
+  periodic_table(
     atomic_number,
     element_name,
     element_symbol,
@@ -1272,7 +1604,8 @@ INSERT INTO periodic_table(
     atomic_mass,
     density
   )
-VALUES (
+VALUES
+  (
     109,
     'Meitnerium',
     'Mt',
@@ -1280,7 +1613,9 @@ VALUES (
     278,
     37.4
   );
-INSERT INTO periodic_table(
+
+INSERT INTO
+  periodic_table(
     atomic_number,
     element_name,
     element_symbol,
@@ -1288,7 +1623,8 @@ INSERT INTO periodic_table(
     atomic_mass,
     density
   )
-VALUES (
+VALUES
+  (
     110,
     'Darmstadtium',
     'Ds',
@@ -1296,21 +1632,26 @@ VALUES (
     281.1620,
     34.8
   );
-INSERT INTO periodic_table(
+
+INSERT INTO
+  periodic_table(
     atomic_number,
     element_name,
     element_symbol,
     classification,
     atomic_mass
   )
-VALUES (
+VALUES
+  (
     111,
     'Roentgenium',
     'Rg',
     5,
     281.1684
   );
-INSERT INTO periodic_table(
+
+INSERT INTO
+  periodic_table(
     atomic_number,
     element_name,
     element_symbol,
@@ -1318,7 +1659,8 @@ INSERT INTO periodic_table(
     atomic_mass,
     density
   )
-VALUES (
+VALUES
+  (
     112,
     'Copernicium',
     'Cn',
@@ -1326,8 +1668,11 @@ VALUES (
     285.1744,
     20
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     113,
     'Nihonium',
     'Nh',
@@ -1337,8 +1682,11 @@ VALUES (
     698.15,
     1428.15
   );
-INSERT INTO periodic_table
-VALUES (
+
+INSERT INTO
+  periodic_table
+VALUES
+  (
     114,
     'Flerovium',
     'Fl',
@@ -1348,7 +1696,9 @@ VALUES (
     341.15,
     419.15
   );
-INSERT INTO periodic_table(
+
+INSERT INTO
+  periodic_table(
     atomic_number,
     element_name,
     element_symbol,
@@ -1356,7 +1706,8 @@ INSERT INTO periodic_table(
     atomic_mass,
     density
   )
-VALUES (
+VALUES
+  (
     115,
     'Moscovium',
     'Mc',
@@ -1364,29 +1715,37 @@ VALUES (
     288.1943,
     13.5
   );
-INSERT INTO periodic_table(
+
+INSERT INTO
+  periodic_table(
     atomic_number,
     element_name,
     element_symbol,
     classification,
     atomic_mass
   )
-VALUES (
+VALUES
+  (
     116,
     'Livermorium',
     'Lv',
     6,
     291.2045
   );
-INSERT INTO periodic_table(
+
+INSERT INTO
+  periodic_table(
     atomic_number,
     element_name,
     element_symbol,
     classification,
     atomic_mass
   )
-VALUES (117, 'Tennessine', 'Ts', 9, 294.2104);
-INSERT INTO periodic_table(
+VALUES
+  (117, 'Tennessine', 'Ts', 9, 294.2104);
+
+INSERT INTO
+  periodic_table(
     atomic_number,
     element_name,
     element_symbol,
@@ -1395,7 +1754,8 @@ INSERT INTO periodic_table(
     density,
     boiling_point
   )
-VALUES (
+VALUES
+  (
     118,
     'Oganesson',
     'Og',

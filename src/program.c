@@ -6,7 +6,7 @@
 
 static int printQuery(void *data, int argc, char **argv, char **azColName)
 {
-  *((int*)data) += 1;
+  *((int *)data) += 1;
   for (int i = 0; i < argc; i++)
     printf("  %s: %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
   printf("\n");
@@ -14,26 +14,34 @@ static int printQuery(void *data, int argc, char **argv, char **azColName)
   return 0;
 }
 
+static int printOptions(void *dataint, int argc, char **argv, char **azColName)
+{
+  if (argc)
+    printf("%2s  - %s\n", argv[0], argv[1]);
+
+  return 0;
+}
+
 int main(int argc, char **argv)
 {
   sqlite3 *db;
-  char query[450],
-      searchChar[30],
-      dbFileName[300],
-      *errMsg = 0,
-      *queryBegin = "SELECT p.element_name AS 'Element Name', p.element_symbol AS Symbol, p.atomic_number AS 'Atomic Number',"
+  char query[470] = "SELECT p.element_name AS 'Element Name', p.element_symbol AS Symbol, p.atomic_number AS 'Atomic Number',"
                     "c.classification_text AS Classification, p.atomic_mass AS 'Atomic Mass (g/mol)', p.density AS 'Density (g/cm^3)',"
                     "p.melting_point AS 'Melting Point (K)', p.boiling_point AS 'Boiling Point (K)' FROM periodic_table AS p "
-                    "INNER JOIN classifications AS c ON p.classification = c.code";
-  int again, count = 0, exit, opition, searchInt;
+                    "INNER JOIN classifications AS c ON p.classification = c.code ",
+       dbFileName[300],
+       searchChar[45],
+       *errMsg = NULL,
+       *queryEnd = query + strlen(query);
+  int again, count = 0, exitCode, opition, searchInt;
 
   sprintf(dbFileName, "%s/database.db", argc ? dirname(argv[0]) : ".");
 
-  exit = sqlite3_open(dbFileName, &db);
+  exitCode = sqlite3_open(dbFileName, &db);
 
-  if (exit)
+  if (exitCode)
   {
-    fprintf(stderr, "Could not connect to the database");
+    fprintf(stderr, "%s\n", errMsg);
     return 1;
   }
 
@@ -57,39 +65,36 @@ int main(int argc, char **argv)
       case 1:
         printf("Enter the element name: ");
         scanf("%s", searchChar);
-        sprintf(query, "%s WHERE p.element_name LIKE '%%%s%%'", queryBegin, searchChar);
+        sprintf(queryEnd, "WHERE p.element_name LIKE '%%%s%%'", searchChar);
         break;
 
       case 2:
         printf("Enter the element symbol: ");
         scanf("%s", searchChar);
-        sprintf(query, "%s WHERE p.element_symbol LIKE '%s'", queryBegin, searchChar);
+        sprintf(queryEnd, "WHERE p.element_symbol LIKE '%s'", searchChar);
         break;
 
       case 3:
         printf("Enter the atomic number: ");
         scanf("%d", &searchInt);
-        sprintf(query, "%s WHERE p.atomic_number = %d", queryBegin, searchInt);
+        sprintf(queryEnd, "WHERE p.atomic_number = %d", searchInt);
         break;
 
       case 4:
-        printf("\n1  - Alkali metals\n"
-               "2  - Alkaline earth metals\n"
-               "3  - Lanthanoids\n"
-               "4  - Actinoids\n"
-               "5  - Transition metals\n"
-               "6  - Post-transition metals\n"
-               "7  - Metalloids\n"
-               "8  - Nonmetals\n"
-               "9  - Halogens\n"
-               "10 - Noble metals\n\n"
-               "Enter an option: ");
+        printf("\n");
+        exitCode = sqlite3_exec(db, "SELECT code, classification_text FROM classifications",
+                                printOptions, &count, &errMsg);
+        if (exitCode)
+        {
+          fprintf(stderr, "%s\n", errMsg);
+          return 1;
+        }
+        printf("\nEnter an option: ");
         scanf("%d", &searchInt);
-        sprintf(query, "%s WHERE p.classification = %d", queryBegin, searchInt);
+        sprintf(queryEnd, "WHERE p.classification = %d", searchInt);
         break;
 
       case 5:
-        strcpy(query, queryBegin);
         break;
 
       case 6:
@@ -101,15 +106,15 @@ int main(int argc, char **argv)
       }
 
       printf("\n");
-      exit = sqlite3_exec(db, query, printQuery, &count, &errMsg);
+      exitCode = sqlite3_exec(db, query, printQuery, &count, &errMsg);
 
-      if (exit)
+      if (exitCode)
       {
         fprintf(stderr, "%s\n", errMsg);
         return 1;
       }
 
-      if(!count)
+      if (!count)
         puts("  No results.");
       count = 0;
 
