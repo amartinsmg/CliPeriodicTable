@@ -14,7 +14,7 @@ static int printQuery(void *data, int argc, char **argv, char **azColName)
   return 0;
 }
 
-static int printOptions(void *dataint, int argc, char **argv, char **azColName)
+static int printOptions(void *data, int argc, char **argv, char **azColName)
 {
   if (argc)
     printf("%2s  - %s\n", argv[0], argv[1]);
@@ -42,7 +42,7 @@ int main(int argc, char **argv)
   if (exitCode)
   {
     fprintf(stderr, "%s\n", errMsg);
-    return 1;
+    exit(-1);
   }
 
   printf("\nPERIODIC TABLE\n");
@@ -83,11 +83,11 @@ int main(int argc, char **argv)
       case 4:
         printf("\n");
         exitCode = sqlite3_exec(db, "SELECT code, classification_text FROM classifications",
-                                printOptions, &count, &errMsg);
+                                printOptions, 0, &errMsg);
         if (exitCode)
         {
           fprintf(stderr, "%s\n", errMsg);
-          return 1;
+          exit(-1);
         }
         printf("\nEnter an option: ");
         scanf("%d", &searchInt);
@@ -95,6 +95,7 @@ int main(int argc, char **argv)
         break;
 
       case 5:
+        *queryEnd = '\0';
         break;
 
       case 6:
@@ -111,7 +112,7 @@ int main(int argc, char **argv)
       if (exitCode)
       {
         fprintf(stderr, "%s\n", errMsg);
-        return 1;
+        exit(-1);
       }
 
       if (!count)
