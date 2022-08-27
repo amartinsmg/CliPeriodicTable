@@ -18,7 +18,7 @@ VALUES
   (5, 'Transition metals'),
   (6, 'Post-transition metals'),
   (7, 'Metalloids'),
-  (8, 'Nonmetals'),
+  (8, 'Other nonmetals'),
   (9, 'Halogens'),
   (10, 'Noble gases');
 
