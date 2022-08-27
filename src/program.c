@@ -4,21 +4,20 @@
 #include <stdlib.h>
 #include <string.h>
 
-static int printQuery(void *data, int argc, char **argv, char **azColName)
+int printQuery(void *data, int argc, char **argv, char **azColName)
 {
+  int i;
   *((int *)data) += 1;
-  for (int i = 0; i < argc; i++)
+  for (i = 0; i < argc; i++)
     printf("  %s: %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
   printf("\n");
-
   return 0;
 }
 
-static int printOptions(void *data, int argc, char **argv, char **azColName)
+int printOptions(void *data, int argc, char **argv, char **azColName)
 {
   if (argc)
     printf("%2s  - %s\n", argv[0], argv[1]);
-
   return 0;
 }
 
@@ -32,7 +31,7 @@ int main(int argc, char **argv)
        dbFileName[300],
        searchChar[45],
        *errMsg = NULL,
-       *queryEnd = query + strlen(query);
+       *queryEnd = (char *)(query + strlen(query));
   int again, count = 0, exitCode, opition, searchInt;
 
   sprintf(dbFileName, "%s/database.db", argc ? dirname(argv[0]) : ".");
