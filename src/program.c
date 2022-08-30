@@ -40,7 +40,7 @@ int main(int argc, char **argv)
 
   if (exitCode)
   {
-    fprintf(stderr, "%s\n", errMsg);
+    fprintf(stderr, "Connection to database failed\n");
     exit(-1);
   }
 
