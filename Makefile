@@ -1,5 +1,5 @@
+Include=-I"include"
 LibSQLite_path=-L"libs"
-Include=-I"libs"
 
 all: database program
 
