@@ -48,10 +48,10 @@ int main(int argc, char **argv)
 
   do
   {
-    printf("\n1  - Find element by name\n"
-           "2  - Find element by symbol\n"
-           "3  - Find element by atomic number\n"
-           "4  - Find elements by classification\n"
+    printf("\n1  - Search element by name\n"
+           "2  - Search element by symbol\n"
+           "3  - Search element by atomic number\n"
+           "4  - Filter elements by classification\n"
            "5  - Print all elements\n"
            "6  - Quit\n\n"
            "Enter an option: ");
