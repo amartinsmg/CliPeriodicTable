@@ -1,6 +1,6 @@
 # PeriodicTable
 
-This is a personal project for a command line interface periodic table. It is made in C and uses a SQLite database to store elements' data.
+This is a personal project for a command line interface periodic table. It is made with C and uses a SQLite database to store elements' data.
 
 The periodic table contains the chemical elements' data, like name, symbol, atomic number, atomic mass, density, melting point, and boiling point. It is useful in chemistry, physics, and other sciences.
 
