@@ -1,15 +1,15 @@
-DROP TABLE IF EXISTS classifications;
+DROP TABLE IF EXISTS tb_classifications;
 
-DROP TABLE IF EXISTS periodic_table;
+DROP TABLE IF EXISTS tb_elements;
 
-CREATE TABLE classifications(
+CREATE TABLE tb_classifications(
   code INT PRIMARY KEY,
   classification_text VARCHAR(45) NOT NULL,
   UNIQUE(classification_text)
 );
 
 INSERT INTO
-  classifications
+  tb_classifications
 VALUES
   (1, 'Alkali metals'),
   (2, 'Alkaline earth metals'),
@@ -22,7 +22,7 @@ VALUES
   (9, 'Halogens'),
   (10, 'Noble gases');
 
-CREATE TABLE periodic_table(
+CREATE TABLE tb_elements(
   atomic_number INT PRIMARY KEY NOT NULL,
   element_name VARCHAR(45) NOT NULL,
   element_symbol VARCHAR(2) NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE periodic_table(
 );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     1,
@@ -50,7 +50,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     2,
@@ -64,7 +64,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     3,
@@ -78,7 +78,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     4,
@@ -92,7 +92,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     5,
@@ -106,7 +106,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     6,
@@ -120,7 +120,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     7,
@@ -134,7 +134,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     8,
@@ -148,7 +148,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     9,
@@ -162,7 +162,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     10,
@@ -176,7 +176,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     11,
@@ -190,7 +190,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     12,
@@ -204,7 +204,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     13,
@@ -218,7 +218,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     14,
@@ -232,7 +232,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     15,
@@ -246,7 +246,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     16,
@@ -260,7 +260,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     17,
@@ -274,7 +274,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     18,
@@ -288,7 +288,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     19,
@@ -302,7 +302,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     20,
@@ -316,7 +316,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     21,
@@ -330,7 +330,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     22,
@@ -344,7 +344,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     23,
@@ -358,7 +358,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     24,
@@ -372,7 +372,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     25,
@@ -386,7 +386,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     26,
@@ -400,7 +400,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     27,
@@ -414,7 +414,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     28,
@@ -428,7 +428,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     29,
@@ -442,7 +442,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     30,
@@ -456,7 +456,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     31,
@@ -470,7 +470,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     32,
@@ -484,7 +484,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table(
+  tb_elements(
     atomic_number,
     element_name,
     element_symbol,
@@ -505,7 +505,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     34,
@@ -519,7 +519,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     35,
@@ -533,7 +533,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     36,
@@ -547,7 +547,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     37,
@@ -561,7 +561,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     38,
@@ -575,7 +575,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     39,
@@ -589,7 +589,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     40,
@@ -603,7 +603,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     41,
@@ -617,7 +617,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     42,
@@ -631,7 +631,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     43,
@@ -645,7 +645,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     44,
@@ -659,7 +659,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     45,
@@ -673,7 +673,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     46,
@@ -687,7 +687,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     47,
@@ -701,7 +701,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     48,
@@ -715,7 +715,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     49,
@@ -729,7 +729,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     50,
@@ -743,7 +743,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     51,
@@ -757,7 +757,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     52,
@@ -771,7 +771,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     53,
@@ -785,7 +785,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     54,
@@ -799,7 +799,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     55,
@@ -813,7 +813,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     56,
@@ -827,7 +827,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     57,
@@ -841,7 +841,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     58,
@@ -855,7 +855,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     59,
@@ -869,7 +869,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     60,
@@ -883,7 +883,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     61,
@@ -897,7 +897,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     62,
@@ -911,7 +911,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     63,
@@ -925,7 +925,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     64,
@@ -939,7 +939,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     65,
@@ -953,7 +953,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     66,
@@ -967,7 +967,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     67,
@@ -981,7 +981,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     68,
@@ -995,7 +995,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     69,
@@ -1009,7 +1009,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     70,
@@ -1023,7 +1023,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     71,
@@ -1037,7 +1037,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     72,
@@ -1051,7 +1051,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     73,
@@ -1065,7 +1065,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     74,
@@ -1079,7 +1079,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     75,
@@ -1093,7 +1093,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     76,
@@ -1107,7 +1107,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     77,
@@ -1121,7 +1121,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     78,
@@ -1135,7 +1135,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     79,
@@ -1149,7 +1149,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     80,
@@ -1163,7 +1163,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     81,
@@ -1177,7 +1177,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     82,
@@ -1191,7 +1191,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     83,
@@ -1205,7 +1205,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     84,
@@ -1219,7 +1219,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     85,
@@ -1233,7 +1233,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     86,
@@ -1247,7 +1247,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     87,
@@ -1261,7 +1261,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     88,
@@ -1275,7 +1275,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     89,
@@ -1289,7 +1289,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     90,
@@ -1303,7 +1303,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     91,
@@ -1317,7 +1317,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     92,
@@ -1331,7 +1331,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     93,
@@ -1345,7 +1345,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     94,
@@ -1359,7 +1359,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     95,
@@ -1373,7 +1373,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     96,
@@ -1387,7 +1387,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     97,
@@ -1401,7 +1401,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     98,
@@ -1415,7 +1415,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table(
+  tb_elements(
     atomic_number,
     element_name,
     element_symbol,
@@ -1436,7 +1436,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table(
+  tb_elements(
     atomic_number,
     element_name,
     element_symbol,
@@ -1457,7 +1457,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table(
+  tb_elements(
     atomic_number,
     element_name,
     element_symbol,
@@ -1476,7 +1476,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table(
+  tb_elements(
     atomic_number,
     element_name,
     element_symbol,
@@ -1495,7 +1495,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table(
+  tb_elements(
     atomic_number,
     element_name,
     element_symbol,
@@ -1514,7 +1514,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     104,
@@ -1528,7 +1528,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table(
+  tb_elements(
     atomic_number,
     element_name,
     element_symbol,
@@ -1547,7 +1547,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table(
+  tb_elements(
     atomic_number,
     element_name,
     element_symbol,
@@ -1566,7 +1566,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table(
+  tb_elements(
     atomic_number,
     element_name,
     element_symbol,
@@ -1585,7 +1585,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table(
+  tb_elements(
     atomic_number,
     element_name,
     element_symbol,
@@ -1596,7 +1596,7 @@ VALUES
   (108, 'Hassium', 'Ha', 5, 269);
 
 INSERT INTO
-  periodic_table(
+  tb_elements(
     atomic_number,
     element_name,
     element_symbol,
@@ -1615,7 +1615,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table(
+  tb_elements(
     atomic_number,
     element_name,
     element_symbol,
@@ -1634,7 +1634,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table(
+  tb_elements(
     atomic_number,
     element_name,
     element_symbol,
@@ -1651,7 +1651,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table(
+  tb_elements(
     atomic_number,
     element_name,
     element_symbol,
@@ -1670,7 +1670,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     113,
@@ -1684,7 +1684,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table
+  tb_elements
 VALUES
   (
     114,
@@ -1698,7 +1698,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table(
+  tb_elements(
     atomic_number,
     element_name,
     element_symbol,
@@ -1717,7 +1717,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table(
+  tb_elements(
     atomic_number,
     element_name,
     element_symbol,
@@ -1734,7 +1734,7 @@ VALUES
   );
 
 INSERT INTO
-  periodic_table(
+  tb_elements(
     atomic_number,
     element_name,
     element_symbol,
@@ -1745,7 +1745,7 @@ VALUES
   (117, 'Tennessine', 'Ts', 9, 294.2104);
 
 INSERT INTO
-  periodic_table(
+  tb_elements(
     atomic_number,
     element_name,
     element_symbol,
