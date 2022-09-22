@@ -1,4 +1,4 @@
-# PeriodicTable
+# CliPeriodicTable
 
 This is a personal project for a command line interface periodic table. It is made with C and uses a SQLite database to store elements' data.
 
