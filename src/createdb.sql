@@ -1,12 +1,24 @@
-DROP TABLE IF EXISTS tb_classifications;
+/**
+ This script creates two tables, tb_classifications and tb_elements, in a database and populates
+ them with data of the periodic table of elements. The tb_classifications table contains
+ the classifications of the elements and the tb_elements table contains information about
+ each element.
+ */
 
+-- Drops the tb_classifications and tb_elements tables if they exist.
+
+DROP TABLE IF EXISTS tb_classifications;
 DROP TABLE IF EXISTS tb_elements;
+
+--  Creates the tb_classifications table with columns for classification code (primary key) and classification text.
 
 CREATE TABLE tb_classifications(
   code INT PRIMARY KEY,
   classification_text VARCHAR(45) NOT NULL,
   UNIQUE(classification_text)
 );
+
+-- Populates the tb_classifications table with classification data.
 
 INSERT INTO
   tb_classifications
@@ -22,6 +34,12 @@ VALUES
   (9, 'Halogens'),
   (10, 'Noble gases');
 
+/**
+  Creates the tb_elements table with columns for atomic number (primary key), element name, 
+  element symbol, classification code, atomic mass, density, melting point, andboiling point. 
+  The classification code is a foreign key that references the tb_classifications table.
+ */
+
 CREATE TABLE tb_elements(
   atomic_number INT PRIMARY KEY NOT NULL,
   element_name VARCHAR(45) NOT NULL,
@@ -34,6 +52,8 @@ CREATE TABLE tb_elements(
   UNIQUE(element_name, element_symbol),
   FOREIGN KEY (classification) REFERENCES classifications(code)
 );
+
+-- Populates the tb_elements table with element data.
 
 INSERT INTO
   tb_elements
@@ -1069,7 +1089,7 @@ INSERT INTO
 VALUES
   (
     74,
-    'Tugsten',
+    'Tungsten',
     'W',
     5,
     183.84,
@@ -1593,7 +1613,7 @@ INSERT INTO
     atomic_mass
   )
 VALUES
-  (108, 'Hassium', 'Ha', 5, 269);
+  (108, 'Hassium', 'Hs', 5, 269);
 
 INSERT INTO
   tb_elements(
