@@ -1,13 +1,32 @@
-# CliPeriodicTable
+# Cli Periodic Table
 
 This is a personal project for a command line interface periodic table. It is made with C and uses a SQLite database to store elements' data.
 
 The periodic table contains the chemical elements' data, like name, symbol, atomic number, atomic mass, density, melting point, and boiling point. It is useful in chemistry, physics, and other sciences.
 
-To compile the program and create the SQLite3 database, you can use this command:
+## Installation
 
-```sh
-make
-```
+Before running the program, make sure you have the following dependencies installed on your system:
 
-<sub>**Note**: Before runing this command, make sure you have installed [GNU Make](https://www.gnu.org/software/make/), [GNU C Compiler](https://gcc.gnu.org/) and [SQLite3](https://www.sqlite.org/index.html). Then open the [Makefile](./Makefile) and verify if the variables Include and LibSQLite_path store, respectively, the actual location of the [SQLite header files](https://www.sqlite.org/2022/sqlite-amalgamation-3390200.zip) and the location of the [SQLite object files library](https://www.sqlite.org/download.html).</sub>
+- [GNU Make](https://www.gnu.org/software/make/)
+- [GNU C Compiler (gcc)](https://gcc.gnu.org/)
+- [SQLite3](https://www.sqlite.org/index.html)
+
+## Usage
+
+To compile the program and create the SQLite3 database, follow these steps:
+
+- Clone the repository or download the code
+- Open the terminal and navigate to the project directory
+- Open the Makefile and verify the values of these variables: 'Include' for the location of the SQLite header files and 'LibSQLite_path' for the location of the SQLite object files library.
+- Run the command `make`.
+
+After successfully running this command, the program will be compiled and the SQLite database will be created in the 'build' directory.
+
+## Contributing
+
+Feel free to contribute to the project by opening an issue or a pull request. All contributions are welcome!
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE.md) file for details.
