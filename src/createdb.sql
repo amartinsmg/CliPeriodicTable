@@ -1,8 +1,7 @@
 /**
  This script creates two tables, tb_classifications and tb_elements, in a database and populates
- them with data of the periodic table of elements. The tb_classifications table contains
- the classifications of the elements and the tb_elements table contains information about
- each element.
+ them with data of the periodic table of elements. The tb_classifications table contains the
+ classifications of the elements and the tb_elements table contains information about each element.
  */
 
 -- Drops the tb_classifications and tb_elements tables if they exist.
@@ -10,12 +9,31 @@
 DROP TABLE IF EXISTS tb_classifications;
 DROP TABLE IF EXISTS tb_elements;
 
---  Creates the tb_classifications table with columns for classification code (primary key) and classification text.
+-- Creates the tb_classifications table with columns for classification code (primary key) and classification text.
 
 CREATE TABLE tb_classifications(
   code INT PRIMARY KEY,
   classification_text VARCHAR(45) NOT NULL,
   UNIQUE(classification_text)
+);
+
+/**
+  Creates the tb_elements table with columns for atomic number (primary key), element name, 
+  element symbol, classification code, atomic mass, density, melting point, and boiling point. 
+  The classification code is a foreign key that references the tb_classifications table.
+ */
+
+CREATE TABLE tb_elements(
+  atomic_number INT PRIMARY KEY NOT NULL,
+  element_name VARCHAR(45) NOT NULL,
+  element_symbol VARCHAR(2) NOT NULL,
+  classification INT NOT NULL,
+  atomic_mass REAL NOT NULL,
+  density REAL,
+  melting_point REAL,
+  boiling_point REAL,
+  UNIQUE(element_name, element_symbol),
+  FOREIGN KEY (classification) REFERENCES classifications(code)
 );
 
 -- Populates the tb_classifications table with classification data.
@@ -34,25 +52,6 @@ VALUES
   (9, 'Halogens'),
   (10, 'Noble gases');
 
-/**
-  Creates the tb_elements table with columns for atomic number (primary key), element name, 
-  element symbol, classification code, atomic mass, density, melting point, andboiling point. 
-  The classification code is a foreign key that references the tb_classifications table.
- */
-
-CREATE TABLE tb_elements(
-  atomic_number INT PRIMARY KEY NOT NULL,
-  element_name VARCHAR(45) NOT NULL,
-  element_symbol VARCHAR(2) NOT NULL,
-  classification INT NOT NULL,
-  atomic_mass REAL NOT NULL,
-  density REAL,
-  melting_point REAL,
-  boiling_point REAL,
-  UNIQUE(element_name, element_symbol),
-  FOREIGN KEY (classification) REFERENCES classifications(code)
-);
-
 -- Populates the tb_elements table with element data.
 
 INSERT INTO
@@ -67,11 +66,7 @@ VALUES
     0.0000899,
     14.01,
     20.28
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     2,
     'Helium',
@@ -81,11 +76,7 @@ VALUES
     0.00017846,
     0.95,
     4.25
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     3,
     'Lithium',
@@ -95,11 +86,7 @@ VALUES
     0.534,
     453.65,
     1615.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     4,
     'Beryllium',
@@ -109,11 +96,7 @@ VALUES
     1.848,
     1551.15,
     3243.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     5,
     'Boron',
@@ -123,11 +106,7 @@ VALUES
     2.34,
     2348.95,
     4199.95
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     6,
     'Carbon',
@@ -137,11 +116,7 @@ VALUES
     2.26,
     3823.15,
     5100.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     7,
     'Nitrogen',
@@ -151,11 +126,7 @@ VALUES
     0.001251,
     63.25,
     77.35
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     8,
     'Oxygen',
@@ -165,11 +136,7 @@ VALUES
     0.00142897,
     54.36,
     90.19
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     9,
     'Fluorine',
@@ -179,11 +146,7 @@ VALUES
     0.001696,
     53.48,
     85.04
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     10,
     'Neon',
@@ -193,11 +156,7 @@ VALUES
     0.0009002,
     24.48,
     27.1
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     11,
     'Sodium',
@@ -207,11 +166,7 @@ VALUES
     0.971,
     370.95,
     1156.09
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     12,
     'Magnesium',
@@ -221,11 +176,7 @@ VALUES
     1.738,
     923.15,
     1363.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     13,
     'Aluminum',
@@ -235,11 +186,7 @@ VALUES
     2.6989,
     933.15,
     2791.97
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     14,
     'Silicon',
@@ -249,11 +196,7 @@ VALUES
     2.33,
     1688,
     3538.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     15,
     'Phosphorus',
@@ -263,11 +206,7 @@ VALUES
     2.82,
     317.3,
     553.65
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     16,
     'Sulfur',
@@ -277,11 +216,7 @@ VALUES
     2.070,
     385.95,
     717.82
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     17,
     'Chlorine',
@@ -291,11 +226,7 @@ VALUES
     0.003214,
     172.17,
     238.55
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     18,
     'Argon',
@@ -305,11 +236,7 @@ VALUES
     0.001784,
     83.81,
     87.3
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     19,
     'Potassium',
@@ -319,11 +246,7 @@ VALUES
     0.856,
     336.53,
     1031.95
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     20,
     'Calcium',
@@ -333,11 +256,7 @@ VALUES
     1.55,
     1115.15,
     1757.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     21,
     'Scandium',
@@ -347,11 +266,7 @@ VALUES
     2.99,
     1814.15,
     3103.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     22,
     'Titanium',
@@ -361,11 +276,7 @@ VALUES
     4.54,
     1933.15,
     3560.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     23,
     'Vanadium',
@@ -375,11 +286,7 @@ VALUES
     6.11,
     2183.15,
     3680.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     24,
     'Chromium',
@@ -389,11 +296,7 @@ VALUES
     7.19,
     2180.15,
     2945.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     25,
     'Manganese',
@@ -403,11 +306,7 @@ VALUES
     7.21,
     1518.15,
     2334.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     26,
     'Iron',
@@ -417,11 +316,7 @@ VALUES
     7.874,
     1812.15,
     3135.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     27,
     'Cobalt',
@@ -431,11 +326,7 @@ VALUES
     8.9,
     1766.15,
     3143.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     28,
     'Nickel',
@@ -445,11 +336,7 @@ VALUES
     8.902,
     1728.15,
     3188.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     29,
     'Copper',
@@ -459,11 +346,7 @@ VALUES
     8.92,
     1357.77,
     2835.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     30,
     'Zinc',
@@ -473,11 +356,7 @@ VALUES
     7.133,
     692.65,
     1179.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     31,
     'Gallium',
@@ -487,11 +366,7 @@ VALUES
     5.91,
     302.95,
     2476.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     32,
     'Germanium',
@@ -501,19 +376,7 @@ VALUES
     5.323,
     1210.65,
     3106.15
-  );
-
-INSERT INTO
-  tb_elements(
-    atomic_number,
-    element_name,
-    element_symbol,
-    classification,
-    atomic_mass,
-    density,
-    boiling_point
-  )
-VALUES
+  ),
   (
     33,
     'Arsenic',
@@ -521,12 +384,9 @@ VALUES
     7,
     74.9216,
     5.72,
+    NULL,
     886.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     34,
     'Selenium',
@@ -536,11 +396,7 @@ VALUES
     4.79,
     490.15,
     957.95
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     35,
     'Bromine',
@@ -550,11 +406,7 @@ VALUES
     3.14,
     265.9,
     331.95
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     36,
     'Krypton',
@@ -564,11 +416,7 @@ VALUES
     0.003749,
     115.78,
     119.75
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     37,
     'Rubidium',
@@ -578,11 +426,7 @@ VALUES
     1.53,
     312.47,
     960.35
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     38,
     'Strontium',
@@ -592,11 +436,7 @@ VALUES
     2.54,
     1050.15,
     1655.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     39,
     'Yttrium',
@@ -606,11 +446,7 @@ VALUES
     4.47,
     1799.15,
     3611.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     40,
     'Zirconium',
@@ -620,11 +456,7 @@ VALUES
     6.51,
     2128.15,
     4682.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     41,
     'Niobium',
@@ -634,11 +466,7 @@ VALUES
     8.58,
     2750.15,
     5200.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     42,
     'Molybdenum',
@@ -648,11 +476,7 @@ VALUES
     10.22,
     2896.15,
     4912.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     43,
     'Technetium',
@@ -662,11 +486,7 @@ VALUES
     11.49,
     2430.15,
     4538.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     44,
     'Ruthenium',
@@ -676,11 +496,7 @@ VALUES
     12.41,
     2607.15,
     4350.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     45,
     'Rhodiium',
@@ -690,11 +506,7 @@ VALUES
     12.41,
     2237.15,
     4000.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     46,
     'Palladium',
@@ -704,11 +516,7 @@ VALUES
     12.02,
     1828.15,
     3236.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     47,
     'Silver',
@@ -718,11 +526,7 @@ VALUES
     10.49,
     1234.95,
     2435.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     48,
     'Cadmium',
@@ -732,11 +536,7 @@ VALUES
     8.64,
     592.25,
     1039.95
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     49,
     'Indium',
@@ -746,11 +546,7 @@ VALUES
     7.31,
     429.75,
     2345.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     50,
     'Tin',
@@ -760,11 +556,7 @@ VALUES
     7.29,
     505.08,
     2875.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     51,
     'Antimony',
@@ -774,11 +566,7 @@ VALUES
     6.69,
     903.9,
     1860.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     52,
     'Tellurium',
@@ -788,11 +576,7 @@ VALUES
     6.25,
     722.7,
     1260.95
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     53,
     'Iodine',
@@ -802,11 +586,7 @@ VALUES
     4.94,
     386.7,
     457.5
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     54,
     'Xenon',
@@ -816,11 +596,7 @@ VALUES
     0.005894,
     161.35,
     165.05
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     55,
     'Caesium',
@@ -830,11 +606,7 @@ VALUES
     1.9,
     301.6,
     943.95
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     56,
     'Barium',
@@ -844,11 +616,7 @@ VALUES
     3.5,
     1000.15,
     2170.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     57,
     'Lanthanum',
@@ -858,11 +626,7 @@ VALUES
     6.16,
     1193.15,
     3737.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     58,
     'Cerium',
@@ -872,11 +636,7 @@ VALUES
     6.77,
     1068.15,
     3716.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     59,
     'Praseodymium',
@@ -886,11 +646,7 @@ VALUES
     6.773,
     1204.15,
     3785.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     60,
     'Neodymium',
@@ -900,11 +656,7 @@ VALUES
     7,
     1283.15,
     3347.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     61,
     'Promethium',
@@ -914,11 +666,7 @@ VALUES
     7.2,
     1440.15,
     3273.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     62,
     'Samarium',
@@ -928,11 +676,7 @@ VALUES
     7.54,
     1345.15,
     2067.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     63,
     'Europium',
@@ -942,11 +686,7 @@ VALUES
     5.25,
     1095.15,
     1870.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     64,
     'Gadolinium',
@@ -956,11 +696,7 @@ VALUES
     7.89,
     1584.15,
     3545.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     65,
     'Terbium',
@@ -970,11 +706,7 @@ VALUES
     8.25,
     1633.15,
     3500.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     66,
     'Dysprosium',
@@ -984,11 +716,7 @@ VALUES
     8.56,
     1682.15,
     2840.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     67,
     'Holmium',
@@ -998,11 +726,7 @@ VALUES
     8.78,
     1743.15,
     2968.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     68,
     'Erbium',
@@ -1012,11 +736,7 @@ VALUES
     9.05,
     1802.15,
     3140.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     69,
     'Thulium',
@@ -1026,11 +746,7 @@ VALUES
     9.32,
     1818.15,
     2220.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     70,
     'Ytterbium',
@@ -1040,11 +756,7 @@ VALUES
     6.97,
     1097.15,
     1466.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     71,
     'Lutetium',
@@ -1054,11 +766,7 @@ VALUES
     9.84,
     1936.15,
     3668.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     72,
     'Hafnium',
@@ -1068,11 +776,7 @@ VALUES
     13.31,
     2506.15,
     4875.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     73,
     'Tantalum',
@@ -1082,11 +786,7 @@ VALUES
     16.68,
     3290.15,
     5731.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     74,
     'Tungsten',
@@ -1096,11 +796,7 @@ VALUES
     19.26,
     3695.15,
     5828.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     75,
     'Rhenium',
@@ -1110,11 +806,7 @@ VALUES
     21.03,
     3453.15,
     5900.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     76,
     'Osmium',
@@ -1124,11 +816,7 @@ VALUES
     22.587,
     3306.15,
     5870.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     77,
     'Iridium',
@@ -1138,11 +826,7 @@ VALUES
     22.562,
     2683.15,
     4403.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     78,
     'Platinum',
@@ -1152,11 +836,7 @@ VALUES
     21.45,
     2041.15,
     4098.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     79,
     'Gold',
@@ -1166,11 +846,7 @@ VALUES
     19.3,
     1337.15,
     2973.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     80,
     'Mercury',
@@ -1180,11 +856,7 @@ VALUES
     13.55,
     234.15,
     629.85
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     81,
     'Thalium',
@@ -1194,11 +866,7 @@ VALUES
     11.85,
     576.75,
     1746.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     82,
     'Lead',
@@ -1208,11 +876,7 @@ VALUES
     11.34,
     600.55,
     2022.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     83,
     'Bismuth',
@@ -1222,11 +886,7 @@ VALUES
     9.8,
     544.55,
     1833.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     84,
     'Polonium',
@@ -1236,11 +896,7 @@ VALUES
     9.2,
     527.15,
     1235.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     85,
     'Astatine',
@@ -1250,11 +906,7 @@ VALUES
     6.4,
     503.15,
     609.95
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     86,
     'Radon',
@@ -1264,11 +916,7 @@ VALUES
     0.0098,
     202.0,
     211.45
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     87,
     'Francium',
@@ -1278,11 +926,7 @@ VALUES
     2.48,
     281.15,
     949.95
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     88,
     'Radium',
@@ -1292,11 +936,7 @@ VALUES
     5.5,
     969.15,
     2010.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     89,
     'Actinium',
@@ -1306,11 +946,7 @@ VALUES
     10.07,
     1323.15,
     3470.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     90,
     'Thorium',
@@ -1320,11 +956,7 @@ VALUES
     11.72,
     2023.15,
     5060.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     91,
     'Protactinium',
@@ -1334,11 +966,7 @@ VALUES
     15.37,
     2113.15,
     4300.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     92,
     'Uranium',
@@ -1348,11 +976,7 @@ VALUES
     19.05,
     1405.55,
     4404.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     93,
     'Neptunium',
@@ -1362,11 +986,7 @@ VALUES
     20.48,
     917.15,
     4175.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     94,
     'Plutonium',
@@ -1376,11 +996,7 @@ VALUES
     19.74,
     914.15,
     3505.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     95,
     'Americium',
@@ -1390,11 +1006,7 @@ VALUES
     13.67,
     1449.15,
     2880.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     96,
     'Curium',
@@ -1404,11 +1016,7 @@ VALUES
     13.51,
     1618.15,
     3383.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     97,
     'Berkelium',
@@ -1418,11 +1026,7 @@ VALUES
     13.25,
     1259.15,
     2900.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     98,
     'Californium',
@@ -1432,19 +1036,7 @@ VALUES
     15.1,
     1173.15,
     1745.15
-  );
-
-INSERT INTO
-  tb_elements(
-    atomic_number,
-    element_name,
-    element_symbol,
-    classification,
-    atomic_mass,
-    density,
-    melting_point
-  )
-VALUES
+  ),
   (
     99,
     'Einsteinium',
@@ -1452,20 +1044,9 @@ VALUES
     4,
     252.0829,
     13.5,
-    1133.15
-  );
-
-INSERT INTO
-  tb_elements(
-    atomic_number,
-    element_name,
-    element_symbol,
-    classification,
-    atomic_mass,
-    density,
-    melting_point
-  )
-VALUES
+    1133.15,
+    NULL
+  ),
   (
     100,
     'Ferminum',
@@ -1473,69 +1054,39 @@ VALUES
     4,
     257.0951,
     19.050,
-    1798.15
-  );
-
-INSERT INTO
-  tb_elements(
-    atomic_number,
-    element_name,
-    element_symbol,
-    classification,
-    atomic_mass,
-    melting_point
-  )
-VALUES
+    1798.15,
+    NULL
+  ),
   (
     101,
     'Mendelevium',
     'Md',
     4,
     258.0951,
-    1098.15
-  );
-
-INSERT INTO
-  tb_elements(
-    atomic_number,
-    element_name,
-    element_symbol,
-    classification,
-    atomic_mass,
-    melting_point
-  )
-VALUES
+    NULL,
+    1098.15,
+    NULL
+  ),
   (
     102,
     'Nobelium',
     'No',
     4,
     259.1009,
-    1098.15
-  );
-
-INSERT INTO
-  tb_elements(
-    atomic_number,
-    element_name,
-    element_symbol,
-    classification,
-    atomic_mass,
-    melting_point
-  )
-VALUES
+    NULL,
+    1098.15,
+    NULL
+  ),
   (
     103,
     'Lawrencium',
     'Lr',
     4,
     266.1193,
-    1898.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+    NULL,
+    1898.15,
+    NULL
+  ),
   (
     104,
     'Rutherfordium',
@@ -1545,153 +1096,78 @@ VALUES
     23,
     2373.15,
     5773.15
-  );
-
-INSERT INTO
-  tb_elements(
-    atomic_number,
-    element_name,
-    element_symbol,
-    classification,
-    atomic_mass,
-    density
-  )
-VALUES
+  ),
   (
     105,
     'Dubnium',
     'Db',
     5,
     262.1138,
-    29
-  );
-
-INSERT INTO
-  tb_elements(
-    atomic_number,
-    element_name,
-    element_symbol,
-    classification,
-    atomic_mass,
-    density
-  )
-VALUES
+    29,
+    NULL,
+    NULL
+  ),
   (
     106,
     'Seaborgium',
     'Sg',
     5,
     263.1182,
-    35
-  );
-
-INSERT INTO
-  tb_elements(
-    atomic_number,
-    element_name,
-    element_symbol,
-    classification,
-    atomic_mass,
-    density
-  )
-VALUES
+    35,
+    NULL,
+    NULL
+  ),
   (
     107,
     'Bohrium',
     'Bh',
     5,
     262.1229,
-    37
-  );
-
-INSERT INTO
-  tb_elements(
-    atomic_number,
-    element_name,
-    element_symbol,
-    classification,
-    atomic_mass
-  )
-VALUES
-  (108, 'Hassium', 'Hs', 5, 269);
-
-INSERT INTO
-  tb_elements(
-    atomic_number,
-    element_name,
-    element_symbol,
-    classification,
-    atomic_mass,
-    density
-  )
-VALUES
+    37,
+    NULL,
+    NULL
+  ),
+  (108, 'Hassium', 'Hs', 5, 269, NULL, NULL, NULL),
   (
     109,
     'Meitnerium',
     'Mt',
     5,
     278,
-    37.4
-  );
-
-INSERT INTO
-  tb_elements(
-    atomic_number,
-    element_name,
-    element_symbol,
-    classification,
-    atomic_mass,
-    density
-  )
-VALUES
+    37.4,
+    NULL,
+    NULL
+  ),
   (
     110,
     'Darmstadtium',
     'Ds',
     5,
     281.1620,
-    34.8
-  );
-
-INSERT INTO
-  tb_elements(
-    atomic_number,
-    element_name,
-    element_symbol,
-    classification,
-    atomic_mass
-  )
-VALUES
+    34.8,
+    NULL,
+    NULL
+  ),
   (
     111,
     'Roentgenium',
     'Rg',
     5,
-    281.1684
-  );
-
-INSERT INTO
-  tb_elements(
-    atomic_number,
-    element_name,
-    element_symbol,
-    classification,
-    atomic_mass,
-    density
-  )
-VALUES
+    281.1684,
+    NULL,
+    NULL,
+    NULL
+  ),
   (
     112,
     'Copernicium',
     'Cn',
     5,
     285.1744,
-    20
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+    20,
+    NULL,
+    NULL
+  ),
   (
     113,
     'Nihonium',
@@ -1701,11 +1177,7 @@ VALUES
     16,
     698.15,
     1428.15
-  );
-
-INSERT INTO
-  tb_elements
-VALUES
+  ),
   (
     114,
     'Flerovium',
@@ -1715,66 +1187,37 @@ VALUES
     14,
     341.15,
     419.15
-  );
-
-INSERT INTO
-  tb_elements(
-    atomic_number,
-    element_name,
-    element_symbol,
-    classification,
-    atomic_mass,
-    density
-  )
-VALUES
+  ),
   (
     115,
     'Moscovium',
     'Mc',
     6,
     288.1943,
-    13.5
-  );
-
-INSERT INTO
-  tb_elements(
-    atomic_number,
-    element_name,
-    element_symbol,
-    classification,
-    atomic_mass
-  )
-VALUES
+    13.5,
+    NULL,
+    NULL
+  ),
   (
     116,
     'Livermorium',
     'Lv',
     6,
-    291.2045
-  );
-
-INSERT INTO
-  tb_elements(
-    atomic_number,
-    element_name,
-    element_symbol,
-    classification,
-    atomic_mass
-  )
-VALUES
-  (117, 'Tennessine', 'Ts', 9, 294.2104);
-
-INSERT INTO
-  tb_elements(
-    atomic_number,
-    element_name,
-    element_symbol,
-    classification,
-    atomic_mass,
-    density,
-    boiling_point
-  )
-VALUES
+    291.2045,
+    NULL,
+    NULL,
+    NULL
+  ),
+  (
+    117,
+    'Tennessine',
+    'Ts',
+    9,
+    294.2104,
+    NULL,
+    NULL,
+    NULL
+  ),
   (
     118,
     'Oganesson',
@@ -1782,5 +1225,6 @@ VALUES
     10,
     294.2139,
     5,
+    NULL,
     368.15
   );
