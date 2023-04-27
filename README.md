@@ -4,15 +4,15 @@ This is a personal project for a command line interface periodic table. It is ma
 
 The periodic table contains the chemical elements' data, like name, symbol, atomic number, atomic mass, density, melting point, and boiling point. It is useful in chemistry, physics, and other sciences.
 
-## Installation
+## Requirements
 
-Before running the program, make sure you have the following dependencies installed on your system:
+Before building the program, make sure you have the following dependencies installed on your system:
 
 - [GNU Make](https://www.gnu.org/software/make/)
 - [GNU C Compiler (gcc)](https://gcc.gnu.org/)
 - [SQLite3](https://www.sqlite.org/index.html)
 
-## Usage
+## Build
 
 To compile the program and create the SQLite3 database, follow these steps:
 
