@@ -53,16 +53,16 @@ int main(int argc, char **argv)
   char query[500] = "SELECT e.element_name AS 'Element Name', e.element_symbol AS Symbol, e.atomic_number AS 'Atomic Number',"
                     "c.classification_text AS Classification, e.atomic_mass AS 'Atomic Mass (g/mol)', e.density AS 'Density (g/cm^3)',"
                     "e.melting_point AS 'Melting Point (K)', e.boiling_point AS 'Boiling Point (K)' FROM tb_elements AS e "
-                    "INNER JOIN tb_classifications AS c ON e.classification = c.code ", // String containing the name of the SQLite database file
+                    "INNER JOIN tb_classifications AS c ON e.classification = c.code ", // String containing the query to SQLite database
       dbFileName[300],                                                                  // String containing the name of the SQLite database file
-      searchChar[45],                                                                   // String containing the search query entered by the user
-      *errMsg = NULL,                                                                   //  Pointer to an error message, if any
+      searchChar[45],                                                                   // String containing the search text entered by the user
+      *errMsg = NULL,                                                                   // Pointer to an error message, if any
       *queryEnd = (char *)(query + strlen(query));                                      // Pointer to the end of the query string
-  int again,                                                                            //  Integer indicating whether to perform another query or return to the main menu
+  int again,                                                                            // Integer indicating whether to perform another query or return to the main menu
       count = 0,                                                                        // Integer counting the number of rows returned by the query
       exitCode,                                                                         // Integer indicating the exit status of the SQLite functions
       opition,                                                                          // Integer representing the user's menu choice
-      searchInt;                                                                        // Integer containing the search query entered by the user
+      searchInt;                                                                        // Integer containing the search number entered by the user
 
   sprintf(dbFileName, "%s/database.db", argc ? dirname(argv[0]) : ".");
 
